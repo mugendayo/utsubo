@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>うつぼ感謝祭</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #FAFAF7;
+      color: #2D2D2D;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    /* ═══════════════════════════════════════════════
+       HERO — フルスクリーン スライドショー背景
+    ═══════════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100svh;
+      min-height: 560px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-slides {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      animation: hero-fade 30s infinite;
+      will-change: opacity;
+    }
+
+    .hero-slide:nth-child(1) { animation-delay:  0s; background-color: #3d3530; }
+    .hero-slide:nth-child(2) { animation-delay:  6s; background-color: #2e3530; }
+    .hero-slide:nth-child(3) { animation-delay: 12s; background-color: #35302e; }
+    .hero-slide:nth-child(4) { animation-delay: 18s; background-color: #303540; }
+    .hero-slide:nth-child(5) { animation-delay: 24s; background-color: #3a3030; }
+
+    /* ヒーロースライドショー 背景写真 */
+    .hero-slide:nth-child(1) { background-image: url('photos/slide1.jpg'); }
+    .hero-slide:nth-child(2) { background-image: url('photos/slide2.jpg'); }
+    .hero-slide:nth-child(3) { background-image: url('photos/slide3.jpg'); }
+    .hero-slide:nth-child(4) { background-image: url('photos/slide4.png'); }
+    .hero-slide:nth-child(5) { background-image: url('photos/slide5.jpg'); }
+
+    @keyframes hero-fade {
+      0%     { opacity: 0; }
+      3.33%  { opacity: 1; }
+      16.67% { opacity: 1; }
+      20%    { opacity: 0; }
+      100%   { opacity: 0; }
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        to bottom,
+        rgba(10,8,6,0.60) 0%,
+        rgba(10,8,6,0.38) 50%,
+        rgba(10,8,6,0.68) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 52px 24px 0;
+      max-width: 640px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #fff;
+      margin-bottom: 12px;
+      line-height: 1.25;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+    }
+
+    .hero-tagline {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.8;
+      border-left: 2px solid rgba(232,115,74,0.8);
+      padding-left: 12px;
+    }
+
+    .hero-meta {
+      position: relative;
+      z-index: 2;
+      padding: 0 24px 32px;
+      max-width: 640px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .meta-block {
+      display: block;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-left: 3px solid #E8734A;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 14px 18px;
+      font-size: 0.88rem;
+      line-height: 2.0;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 20px;
+    }
+
+    .meta-block .placeholder { color: rgba(255,255,255,0.4); }
+
+    .hero-scroll-hint {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      position: relative;
+      z-index: 2;
+      padding-bottom: 8px;
+    }
+
+    .scroll-arrow {
+      width: 20px;
+      height: 20px;
+      border-right: 1.5px solid rgba(255,255,255,0.35);
+      border-bottom: 1.5px solid rgba(255,255,255,0.35);
+      transform: rotate(45deg);
+      animation: bounce-arrow 1.6s ease-in-out infinite;
+      margin-top: -4px;
+    }
+
+    @keyframes bounce-arrow {
+      0%, 100% { transform: rotate(45deg) translateY(0);   opacity: 0.35; }
+      50%       { transform: rotate(45deg) translateY(4px); opacity: 0.7;  }
+    }
+
+    .slide-ph-label {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .slide-ph-label span {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.18);
+      letter-spacing: 0.08em;
+      padding: 6px 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 2px;
+    }
+
+    /* ═══════════════════════════════════════════════
+       VISION — ヒーロー直下の一言
+    ═══════════════════════════════════════════════ */
+    .section-vision {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 44px 24px 40px;
+      border-bottom: 1px solid #e0e0da;
+    }
+
+    .vision-text {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: #2D2D2D;
+      line-height: 1.85;
+      margin-bottom: 10px;
+    }
+
+    .vision-text em {
+      font-style: normal;
+      color: #E8734A;
+    }
+
+    .vision-sub {
+      font-size: 0.83rem;
+      color: #999;
+      line-height: 1.7;
+    }
+
+    /* ═══════════════════════════════════════════════
+       SECTION 共通ラベル
+    ═══════════════════════════════════════════════ */
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #E8734A;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .section-desc {
+      font-size: 0.8rem;
+      color: #aaa;
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    /* ═══════════════════════════════════════════════
+       ABOUT
+    ═══════════════════════════════════════════════ */
+    .section-about {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 44px 24px 40px;
+      border-bottom: 1px solid #e0e0da;
+    }
+
+    .section-about p {
+      font-size: 0.92rem;
+      color: #3a3a3a;
+      margin-bottom: 14px;
+      line-height: 1.85;
+    }
+
+    .section-about p:last-child { margin-bottom: 0; }
+
+    .section-mid-photo {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .photo-mid {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #e4e0d8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .photo-mid img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      background: #e4e0d8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .photo-placeholder .icon {
+      width: 36px;
+      height: 36px;
+      border: 2px solid #c0bab0;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-placeholder .icon::before {
+      content: '';
+      display: block;
+      width: 14px;
+      height: 10px;
+      border: 1.5px solid #c0bab0;
+      border-radius: 2px;
+    }
+
+    .photo-placeholder .label {
+      font-size: 0.75rem;
+      color: #aaa;
+      letter-spacing: 0.04em;
+    }
+
+    .section-about--second { padding-top: 28px; }
+
+    /* ═══════════════════════════════════════════════
+       PHOTO STRIP
+    ═══════════════════════════════════════════════ */
+    .section-strip {
+      border-bottom: 1px solid #e0e0da;
+      padding: 40px 0 36px;
+    }
+
+    .section-strip .strip-header {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 24px;
+      margin-bottom: 16px;
+    }
+
+    .strip-scroll {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 0 24px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .strip-scroll::-webkit-scrollbar { display: none; }
+
+    .strip-item {
+      flex-shrink: 0;
+      width: 200px;
+      scroll-snap-align: start;
+    }
+
+    .strip-photo {
+      width: 200px;
+      height: 150px;
+      background: #e4e0d8;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+
+    .strip-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+    .strip-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .strip-photo-placeholder .ph-icon {
+      width: 28px;
+      height: 22px;
+      border: 1.5px solid #b8b4ac;
+      border-radius: 3px;
+      opacity: 0.6;
+    }
+
+    .strip-caption { font-size: 0.76rem; color: #999; line-height: 1.5; padding-right: 4px; }
+
+    .strip-hint {
+      max-width: 640px;
+      margin: 14px auto 0;
+      padding: 0 24px;
+      font-size: 0.74rem;
+      color: #bbb;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .strip-hint::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: #ccc;
+    }
+
+    /* ═══════════════════════════════════════════════
+       TIMELINE
+    ═══════════════════════════════════════════════ */
+    .section-timeline {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 44px 24px 40px;
+      border-bottom: none;
+    }
+
+    .timeline { list-style: none; margin-top: 16px; }
+
+    .timeline li {
+      font-size: 0.91rem;
+      padding: 11px 0;
+      border-bottom: 1px dashed #ddd;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .timeline li:last-child { border-bottom: none; }
+
+    .timeline .time {
+      color: #E8734A;
+      font-weight: 500;
+      min-width: 58px;
+      flex-shrink: 0;
+      font-size: 0.85rem;
+      padding-top: 1px;
+    }
+
+    .timeline .desc { color: #2D2D2D; font-size: 0.91rem; }
+
+    .timeline .desc-note {
+      display: block;
+      font-size: 0.77rem;
+      color: #aaa;
+      margin-top: 2px;
+    }
+
+    /* ═══════════════════════════════════════════════
+       STICKERS — 過去参加者の吹き出しシール
+       スクロールで視野に入ると scale(0)→(1) のポップイン
+    ═══════════════════════════════════════════════ */
+    .section-stickers {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 8px 24px 40px;
+      border-bottom: 1px solid #e0e0da;
+      position: relative;
+      overflow: visible;
+    }
+
+    .stickers-row {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .sticker-unit {
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+      /* 初期状態（JS で .popped を付与するまで非表示） */
+      opacity: 0;
+      transform: scale(0.4);
+      transform-origin: left bottom;
+      transition:
+        opacity 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .sticker-unit:nth-child(2) {
+      flex-direction: row-reverse;
+      transform-origin: right bottom;
+      align-self: flex-end;
+      transition-delay: 0.13s;
+    }
+
+    .sticker-unit:nth-child(3) {
+      transition-delay: 0.26s;
+    }
+
+    .sticker-unit.popped {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* ── シール（円形切り抜き写真） ── */
+    .sticker-avatar {
+      flex-shrink: 0;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #fff;
+      box-shadow: 2px 3px 10px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.06);
+      background: #d8d4cc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* 各シールが少しずつ傾く */
+    }
+
+    .sticker-unit:nth-child(1) .sticker-avatar { transform: rotate(-4deg); }
+    .sticker-unit:nth-child(2) .sticker-avatar { transform: rotate(3deg); }
+    .sticker-unit:nth-child(3) .sticker-avatar { transform: rotate(-2deg); }
+
+    .sticker-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* 透過PNGを使うとより切り抜き感が出る */
+    }
+
+    .sticker-avatar-ph {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #cdc9c0;
+    }
+
+    .sticker-avatar-ph svg {
+      width: 28px;
+      height: 28px;
+      opacity: 0.45;
+    }
+
+    /* ── 吹き出し ── */
+    .sticker-bubble {
+      background: #fff;
+      border-radius: 14px;
+      padding: 8px 14px;
+      font-size: 0.82rem;
+      color: #333;
+      line-height: 1.5;
+      box-shadow: 1px 2px 8px rgba(0,0,0,0.10);
+      position: relative;
+      max-width: 200px;
+    }
+
+    /* 吹き出しのしっぽ（左から） */
+    .sticker-unit:nth-child(odd) .sticker-bubble::before {
+      content: '';
+      position: absolute;
+      left: -9px;
+      bottom: 14px;
+      border: 9px solid transparent;
+      border-right-color: #fff;
+      border-left: none;
+      filter: drop-shadow(-1px 1px 1px rgba(0,0,0,0.06));
+    }
+
+    /* 吹き出しのしっぽ（右から） */
+    .sticker-unit:nth-child(even) .sticker-bubble::before {
+      content: '';
+      position: absolute;
+      right: -9px;
+      bottom: 14px;
+      border: 9px solid transparent;
+      border-left-color: #fff;
+      border-right: none;
+      filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.06));
+    }
+
+    .sticker-name {
+      display: block;
+      font-size: 0.68rem;
+      color: #bbb;
+      margin-top: 3px;
+    }
+
+    /* ═══════════════════════════════════════════════
+       TRACK RECORD
+    ═══════════════════════════════════════════════ */
+    .section-track {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 44px 24px 42px;
+      background: #f4f4f0;
+      border-bottom: 1px solid #e0e0da;
+    }
+
+    .section-track p {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 20px;
+      line-height: 1.85;
+    }
+
+    .stats {
+      border: 1px solid #e0e0da;
+      border-radius: 4px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .stats-row {
+      display: flex;
+      font-size: 0.85rem;
+      border-bottom: 1px solid #eceae6;
+    }
+
+    .stats-row:last-child { border-bottom: none; }
+
+    .stats-label {
+      background: #f7f7f4;
+      color: #888;
+      padding: 10px 14px;
+      min-width: 130px;
+      flex-shrink: 0;
+      font-size: 0.79rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .stats-value {
+      padding: 10px 14px;
+      color: #2D2D2D;
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .stats-value .placeholder { color: #bbb; font-size: 0.78rem; }
+
+    /* ═══════════════════════════════════════════════
+       HOST PROFILES — コンパクト版
+    ═══════════════════════════════════════════════ */
+    .section-hosts {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 40px 24px 38px;
+      border-bottom: 1px solid #e0e0da;
+    }
+
+    .hosts-intro {
+      font-size: 0.85rem;
+      color: #999;
+      margin-bottom: 24px;
+    }
+
+    .host-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .host-card {
+      background: #fff;
+      padding: 14px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      position: relative;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      opacity: 0;
+      transform: translateY(-20px) rotate(var(--tilt, -2deg));
+      transition:
+        opacity 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+        transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.2s ease;
+    }
+
+    .host-card.is-visible {
+      opacity: 1;
+      transform: translateY(0) rotate(var(--tilt, -2deg));
+    }
+
+    .host-card:hover {
+      transform: translateY(-1px) rotate(0deg) !important;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    }
+
+    .host-card:nth-child(2) { transition-delay: 0.1s; }
+
+    /* ポラロイドテープ */
+    .host-card::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 12px;
+      background: rgba(232,115,74,0.15);
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-1deg);
+      border-radius: 1px;
+    }
+
+    /* 小さい正方形写真 */
+    .host-photo-sm {
+      flex-shrink: 0;
+      width: 72px;
+      height: 72px;
+      background: #ddd9d0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .host-photo-sm img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .host-photo-sm-ph {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #d8d4cb;
+    }
+
+    .host-photo-sm-ph svg { width: 22px; height: 22px; opacity: 0.4; }
+
+    .host-body { flex: 1; min-width: 0; }
+
+    .host-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #2D2D2D;
+      margin-bottom: 1px;
+    }
+
+    /* オレンジラベルの下の特徴テキスト（飾りなし） */
+    .host-traits {
+      font-size: 0.72rem;
+      color: #E8734A;
+      margin-bottom: 7px;
+    }
+
+    .host-text {
+      font-size: 0.83rem;
+      color: #555;
+      line-height: 1.75;
+    }
+
+    /* ═══════════════════════════════════════════════
+       WHO + お断り
+    ═══════════════════════════════════════════════ */
+    .section-who {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 44px 24px 46px;
+      border-bottom: 1px solid #e0e0da;
+    }
+
+    .section-who p {
+      font-size: 0.92rem;
+      color: #3a3a3a;
+      margin-bottom: 14px;
+      line-height: 1.85;
+    }
+
+    .section-who p:last-child { margin-bottom: 0; }
+
+    /* お断りブロック */
+    .rejection-block {
+      margin-top: 24px;
+      padding: 16px 18px;
+      background: #f7f3ee;
+      border-left: 3px solid #d0c4b8;
+    }
+
+    .rejection-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #a09080;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+
+    .rejection-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .rejection-list li {
+      font-size: 0.85rem;
+      color: #7a6a5a;
+      line-height: 1.6;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .rejection-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: #c0b0a0;
+    }
+
+    /* ═══════════════════════════════════════════════
+       CTA
+    ═══════════════════════════════════════════════ */
+    .section-cta {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 52px 24px 52px;
+      text-align: center;
+      border-bottom: 1px solid #e0e0da;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #E8734A;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 15px 40px;
+      border-radius: 4px;
+      letter-spacing: 0.03em;
+      box-shadow: 0 1px 4px rgba(232,115,74,0.25);
+    }
+
+    .btn:active { background: #d4623b; }
+
+    .cta-note { margin-top: 14px; font-size: 0.8rem; color: #bbb; }
+
+    /* ═══════════════════════════════════════════════
+       注意事項 — 利用規約スタイルのスクロールボックス
+    ═══════════════════════════════════════════════ */
+    .section-terms {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 28px 24px 32px;
+      border-bottom: 1px solid #e0e0da;
+    }
+
+    .terms-label {
+      font-size: 0.68rem;
+      color: #ccc;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .terms-scroll {
+      max-height: 120px;
+      overflow-y: auto;
+      border: 1px solid #e8e8e4;
+      border-radius: 3px;
+      padding: 12px 14px;
+      background: #f8f8f5;
+      scrollbar-width: thin;
+      scrollbar-color: #ddd #f8f8f5;
+    }
+
+    .terms-scroll::-webkit-scrollbar { width: 4px; }
+    .terms-scroll::-webkit-scrollbar-track { background: #f8f8f5; }
+    .terms-scroll::-webkit-scrollbar-thumb { background: #ddd; border-radius: 2px; }
+
+    .terms-scroll p,
+    .terms-scroll li {
+      font-size: 0.72rem;
+      color: #aaa;
+      line-height: 1.7;
+    }
+
+    .terms-scroll ul { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+
+    .terms-scroll li {
+      padding-left: 12px;
+      position: relative;
+    }
+
+    .terms-scroll li::before {
+      content: '・';
+      position: absolute;
+      left: 0;
+      color: #ccc;
+    }
+
+    .terms-scroll .terms-heading {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #bbb;
+      margin-top: 10px;
+      margin-bottom: 3px;
+    }
+
+    .terms-scroll .terms-heading:first-child { margin-top: 0; }
+
+    /* フッター */
+    footer {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 28px 24px 40px;
+      font-size: 0.78rem;
+      color: #bbb;
+      line-height: 2.0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO ────────────────────────────────────────── -->
+  <header class="hero">
+    <div class="hero-slides" aria-hidden="true">
+      <div class="hero-slide"><div class="slide-ph-label"><span>SLIDE 1 — 全体カット</span></div></div>
+      <div class="hero-slide"><div class="slide-ph-label"><span>SLIDE 2 — 会話シーン</span></div></div>
+      <div class="hero-slide"><div class="slide-ph-label"><span>SLIDE 3 — ピッチシーン</span></div></div>
+      <div class="hero-slide"><div class="slide-ph-label"><span>SLIDE 4 — 飯シーン</span></div></div>
+      <div class="hero-slide"><div class="slide-ph-label"><span>SLIDE 5 — 緩い場のシーン</span></div></div>
+    </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">2021年から続く、毎月の集まり</p>
+      <h1>うつぼ感謝祭</h1>
+      <p class="hero-tagline">事業の話をしながら、飯を食う。<br>それだけのイベントが、4年続いている。</p>
+    </div>
+
+    <div class="hero-meta">
+      <div class="meta-block">
+        <div>日時：<span class="placeholder">2026年○月○日（○）18:00〜21:30</span></div>
+        <div>会場：<span class="placeholder">ThanatosGames Office / 大阪市○○区○○</span></div>
+        <div>参加費：無料</div>
+      </div>
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <div class="scroll-arrow"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- VISION ──────────────────────────────────────
+       ヒーロー直下。MVVではなく「こういう世界を作りたい人が集まる」という温度感。
+  ──────────────────────────────────────────────── -->
+  <section class="section-vision">
+    <p class="vision-text">
+      <em>「自分でやる人」が増えると、</em>世界はもう少し面白くなると思っている。<br>
+      うつぼ感謝祭は、そういう人たちが集まる場所であり続けたい。
+    </p>
+    <p class="vision-sub">大阪発。学生も社会人も起業家も、同じ飯を食う。</p>
+  </section>
+
+  <!-- ABOUT ───────────────────────────────────────── -->
+  <section class="section-about">
+    <p class="section-label">このイベントについて</p>
+    <p class="section-desc">大阪・月1開催・無料・2021年〜</p>
+    <p>2021年、西九条のシェアハウスの住民向けイベントとして始まった。<br>特に宣伝していないのに、毎月30名前後が申し込み続けている。</p>
+  </section>
+
+  <div class="section-mid-photo">
+    <div class="photo-mid">
+      <img src="photos/mid.jpg" alt="イベントの様子">
+    </div>
+  </div>
+
+  <section class="section-about section-about--second">
+    <p>事業の話をしている人と、シーシャを吸いながらスマブラをやっている人が、同じ空間にいる。<br>ピッチがあって、雑談に戻る。その繰り返し。</p>
+  </section>
+
+  <!-- PHOTO STRIP ─────────────────────────────────── -->
+  <div class="section-strip">
+    <div class="strip-header">
+      <p class="section-label">過去の開催から</p>
+      <p class="section-desc">2021年〜現在の記録</p>
+    </div>
+    <div class="strip-scroll">
+      <div class="strip-item">
+        <div class="strip-photo">
+          <img src="photos/strip1.jpg" alt="ピッチの様子">
+        </div>
+        <p class="strip-caption">住民ピッチ。今やっていることを5分で話す</p>
+      </div>
+      <div class="strip-item">
+        <div class="strip-photo">
+          <img src="photos/strip2.jpg" alt="食事と会話の様子">
+        </div>
+        <p class="strip-caption">飯を食いながら、自然と話が始まる</p>
+      </div>
+      <div class="strip-item">
+        <div class="strip-photo">
+          <img src="photos/strip3.jpg" alt="参加者の様子">
+        </div>
+        <p class="strip-caption">学生・社会人・起業家が同じ空間にいる</p>
+      </div>
+      <div class="strip-item">
+        <div class="strip-photo">
+          <img src="photos/strip4.PNG" alt="シーシャやゲームの様子">
+        </div>
+        <p class="strip-caption">ピッチが終わると、また雑談に戻る</p>
+      </div>
+    </div>
+    <p class="strip-hint">横にスクロールできます</p>
+  </div>
+
+  <!-- TIMELINE ────────────────────────────────────── -->
+  <section class="section-timeline">
+    <p class="section-label">当日の流れ</p>
+    <p class="section-desc">18:00 開場 → 21:30 終了</p>
+    <ul class="timeline">
+      <li>
+        <span class="time">18:00</span>
+        <span class="desc">開場。飯が出てる。適当に食べる</span>
+      </li>
+      <li>
+        <span class="time">19:00</span>
+        <span class="desc">住民ピッチ<span class="desc-note">今やっていることを5分で話す</span></span>
+      </li>
+      <li>
+        <span class="time">19:30</span>
+        <span class="desc">ゲストピッチタイム<span class="desc-note">やりたい人だけ。飛び込みOK</span></span>
+      </li>
+      <li>
+        <span class="time">20:00〜</span>
+        <span class="desc">シーシャ・スマブラ・桃鉄・雑談</span>
+      </li>
+      <li>
+        <span class="time">21:30</span>
+        <span class="desc">終了<span class="desc-note">残りたい人は残る</span></span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- STICKERS — 過去参加者の吹き出しシール ──────────
+       スクロールで視野に入ると scale(0)→(1) のポップイン。
+       円形切り抜き写真 + 吹き出し。透過PNGを使うとより切り抜き感が増す。
+  ──────────────────────────────────────────────── -->
+  <div class="section-stickers" id="stickers">
+    <div class="stickers-row">
+
+      <!-- シール 1（左寄り） -->
+      <div class="sticker-unit">
+        <div class="sticker-avatar">
+          <img src="photos/person1.png" alt="参加者A">
+        </div>
+        <div class="sticker-bubble">
+          雰囲気が柔らかくて、初参加でも話しかけやすかった。
+          <span class="sticker-name"><!-- [名前 or 属性] 例: 大学3年・工学部 --></span>
+        </div>
+      </div>
+
+      <!-- シール 2（右寄り） -->
+      <div class="sticker-unit">
+        <div class="sticker-avatar">
+          <img src="photos/person2.png" alt="参加者B">
+        </div>
+        <div class="sticker-bubble">
+          気づいたら毎月来てる。同じ顔と新しい顔が混ざってる感じが好き。
+          <span class="sticker-name"><!-- 例: 25歳・スタートアップ勤務 --></span>
+        </div>
+      </div>
+
+      <!-- シール 3（左寄り） -->
+      <div class="sticker-unit">
+        <div class="sticker-avatar">
+          <img src="photos/person3.png" alt="参加者C">
+        </div>
+        <div class="sticker-bubble">
+          ピッチしたら事業の壁打ちになった。来てよかった。
+          <span class="sticker-name"><!-- 例: 大学4年・起業準備中 --></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TRACK RECORD ────────────────────────────────── -->
+  <section class="section-track">
+    <p class="section-label">続いてきた記録</p>
+    <p class="section-desc">開催実績・参加データ</p>
+    <p>2021年から始まって、名前と場所を変えながらも途切れずに続いている。特別な告知をしているわけでもなく、毎回フォームが埋まって、同じくらいの人数が集まり続けている。</p>
+    <div class="stats">
+      <div class="stats-row">
+        <span class="stats-label">開催期間</span>
+        <span class="stats-value">2021年〜2023年、2025年〜現在</span>
+      </div>
+      <div class="stats-row">
+        <span class="stats-label">通算開催回数</span>
+        <span class="stats-value"><span class="placeholder">○○回（確定後に更新）</span></span>
+      </div>
+      <div class="stats-row">
+        <span class="stats-label">平均参加者数</span>
+        <span class="stats-value">22〜25名／回</span>
+      </div>
+      <div class="stats-row">
+        <span class="stats-label">フォーム申込</span>
+        <span class="stats-value">毎回30名前後</span>
+      </div>
+      <div class="stats-row">
+        <span class="stats-label">参加費</span>
+        <span class="stats-value">無料（飯・シーシャ含む）</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOST PROFILES — コンパクト版 ────────────────────
+       目的: 顔が見える / どんな人かわかる / 茶目っ気が伝わる
+       演出: ポラロイド風カードがバウンス着地
+  ──────────────────────────────────────────────── -->
+  <section class="section-hosts">
+    <p class="section-label">主催している人たち</p>
+    <p class="section-desc">うつぼハウス立ち上げメンバー2人</p>
+    <p class="hosts-intro">なんでやってるかを聞いたら、たぶん2人で答えが違う。</p>
+
+    <div class="host-cards">
+
+      <div class="host-card" style="--tilt: -2.5deg;">
+        <div class="host-photo-sm">
+          <img src="photos/host1.jpg" alt="○○さん">
+        </div>
+        <div class="host-body">
+          <p class="host-name"><!-- [BLOCK: 名前] -->○○ ○○</p>
+          <!-- オレンジラベル下の特徴。飾りなしプレーンテキスト -->
+          <p class="host-traits"><!-- [BLOCK: 特徴] 例: 27歳 / 起業家 / シーシャとサウナ好き --></p>
+          <p class="host-text">
+            <!-- [BLOCK: 本人の言葉で。砕けた口調で] -->
+            ここに飯作って食べてたら、なぜか毎月30人くる場所になってた。なんでこうなったのかは自分でもよくわからんけど、来てくれる人が楽しそうだから続いてる。
+          </p>
+        </div>
+      </div>
+
+      <div class="host-card" style="--tilt: 2deg;">
+        <div class="host-photo-sm">
+          <img src="photos/host2.JPG" alt="○○さん">
+        </div>
+        <div class="host-body">
+          <p class="host-name"><!-- [BLOCK: 名前] -->○○ ○○</p>
+          <p class="host-traits"><!-- [BLOCK: 特徴] 例: 25歳 / ○○事業 / コーヒーと読書 --></p>
+          <p class="host-text">
+            <!-- [BLOCK: 本人の言葉で] -->
+            事業をちゃんとやってる人の話が一番おもしろいと思っていて、そういう人が集まる場所を続けたかった。自分が参加したいと思えるイベントにするようにしてる。
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHO + お断り ─────────────────────────────────── -->
+  <section class="section-who">
+    <p class="section-label">来てほしい人</p>
+    <p class="section-desc">事業・起業・ビジネスに向き合っている人</p>
+    <p>事業をやっている人、起業を考えている人、ビジネスに向き合っている人。<br>何かをやろうとしている人の話を聞くのが好き、という人も合う。</p>
+
+    <div class="rejection-block">
+      <p class="rejection-title">こういう方はご遠慮ください</p>
+      <ul class="rejection-list">
+        <li>勧誘・営業・マルチ商法の勧誘を目的とした参加</li>
+        <li>「暇だから」「飯が無料だから」だけが目的の方</li>
+        <li>ピッチや事業の話に一切興味がない方</li>
+        <li>他の参加者の連絡先を無断で集める目的の方</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA ─────────────────────────────────────────── -->
+  <section class="section-cta">
+    <!-- [BLOCK: Googleフォームリンク] 確定後にhref="#"を差し替え -->
+    <a class="btn" href="#">参加申し込みはこちら</a>
+    <p class="cta-note">定員になり次第フォームを閉じます</p>
+  </section>
+
+  <!-- 注意事項 ─────────────────────────────────────────
+       利用規約スタイル。スクロールで全文が読める小さいテキストボックス。
+  ──────────────────────────────────────────────── -->
+  <div class="section-terms">
+    <p class="terms-label">注意事項・参加規約</p>
+    <div class="terms-scroll">
+      <p class="terms-heading">【勧誘・営業行為の禁止】</p>
+      <ul>
+        <li>会場内でのあらゆる勧誘・営業行為を禁止します。マルチ商法・ネットワークビジネス・投資案件・宗教への勧誘は固く禁じます。発覚した場合は即時退場をお願いし、以降の参加をお断りします。</li>
+      </ul>
+      <p class="terms-heading">【個人情報の取り扱い】</p>
+      <ul>
+        <li>他の参加者の氏名・連絡先・SNSアカウントを本人の同意なく収集・記録・共有する行為を禁止します。</li>
+        <li>フォームに入力いただいた情報は当イベントの運営目的のみに使用し、第三者への提供は行いません。</li>
+      </ul>
+      <p class="terms-heading">【撮影・録音】</p>
+      <ul>
+        <li>会場内での撮影・録音は主催者の許可を得た場合のみ可能です。他の参加者が映り込む写真・動画のSNS投稿は、映り込んだ方の了解を事前に得てください。</li>
+      </ul>
+      <p class="terms-heading">【キャンセル・不参加】</p>
+      <ul>
+        <li>参加キャンセルの場合は開催前日までにご連絡ください。当日の無断欠席が続いた場合、次回以降の参加をお断りすることがあります。</li>
+      </ul>
+      <p class="terms-heading">【飲酒・喫煙】</p>
+      <ul>
+        <li>アルコールは任意です。各自の責任において適量を守ってください。シーシャの使用は会場ルールに従います。未成年の飲酒は法令により禁止されています。</li>
+      </ul>
+      <p class="terms-heading">【参加拒否・退場】</p>
+      <ul>
+        <li>主催者は、他の参加者に不快・迷惑・危害を与えると判断した参加者に対し、理由の如何を問わず退場を求める権利を有します。</li>
+        <li>主催者の判断により、特定の方の参加をお断りすることがあります。その理由を開示する義務は主催者には生じません。</li>
+      </ul>
+      <p class="terms-heading">【免責】</p>
+      <ul>
+        <li>会場内および会場周辺での紛失・盗難・事故・トラブルについて、主催者は責任を負いかねます。貴重品は各自で管理してください。</li>
+        <li>参加者同士のビジネス上のトラブルについて、主催者は一切の関与・責任を負いません。</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- フッター -->
+  <footer>
+    <div>主催：ThanatosGames / うつぼハウス</div>
+    <div>お問い合わせ：<span style="color:#ccc">○○（確定後に記載）</span></div>
+  </footer>
+
+  <script>
+    /* ── ポラロイドカード 着地アニメーション ── */
+    (function () {
+      var cards = document.querySelectorAll('.host-card');
+      if (!cards.length) return;
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      cards.forEach(function (c) { obs.observe(c); });
+    })();
+
+    /* ── 参加者シール ポップイン ── */
+    (function () {
+      var units = document.querySelectorAll('.sticker-unit');
+      if (!units.length) return;
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('popped');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      units.forEach(function (u) { obs.observe(u); });
+    })();
+  </script>
+
+</body>
+</html>
