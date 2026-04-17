@@ -329,6 +329,8 @@
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
+      max-width: 640px;
+      margin: 0 auto;
     }
 
     .strip-scroll::-webkit-scrollbar { display: none; }
@@ -640,6 +642,9 @@
       margin-bottom: 18px;
       position: relative;
       overflow: hidden;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* 上部レインボー帯 */
@@ -778,12 +783,13 @@
       width: 90px;
       height: 90px;
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      flex-direction: row;
+      align-items: flex-end;
       justify-content: center;
       z-index: 6;
       pointer-events: none;
       line-height: 1;
+      padding-bottom: 6px;
     }
 
     /* スターバーストは ::before に適用してテキストが見切れないようにする */
@@ -832,6 +838,8 @@
       grid-template-columns: 1fr 1fr;
       gap: 0;                        /* 隙間なし＝チラシの枠感 */
       border: 2px solid #333;
+      max-width: 640px;
+      margin: 0 auto;
     }
 
     .food-card {
@@ -1606,9 +1614,9 @@
         </div>
         <div class="food-body">
           <div class="food-avatar"><div class="food-avatar-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div></div>
-          <p class="food-dish"><!-- [料理名] --></p>
+          <p class="food-dish">バカチキン</p>
           <p class="food-cook">本多令旺</p>
-          <div class="food-bubble"><!-- [ひとこと] --></div>
+          <div class="food-bubble">味付けは濃ければ濃いほど良い</div>
         </div>
       </div>
 
@@ -1651,9 +1659,9 @@
         </div>
         <div class="food-body">
           <div class="food-avatar"><div class="food-avatar-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div></div>
-          <p class="food-dish"><!-- [料理名] --></p>
-          <p class="food-cook"><!-- [住民名] --></p>
-          <div class="food-bubble"><!-- [ひとこと] --></div>
+          <p class="food-dish">野菜炒め　(二郎風)</p>
+          <p class="food-cook">松井諒太</p>
+          <div class="food-bubble">二郎を手軽に｡</div>
         </div>
       </div>
 
