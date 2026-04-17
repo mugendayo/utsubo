@@ -619,76 +619,87 @@
     .stats-value .placeholder { color: #bbb; font-size: 0.78rem; }
 
     /* ═══════════════════════════════════════════════
-       UTSUBO飯 — スーパー玉出スタイル
-       大阪のカオスな激安スーパー感。赤・黄・緑の原色。
+       UTSUBO飯
+       ヘッダー：玉出の店舗看板スタイル（白地・ダブル赤枠）
+       カード：チラシの枠組みスタイル（抑えた色調）
     ═══════════════════════════════════════════════ */
     .section-food {
-      border-bottom: 4px solid #c8000f;
-      padding: 0 0 28px;
-      background: #d9000f;
-      overflow: hidden;
+      background: #f5f0e8;
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 3px solid #1a1a1a;
+      padding: 20px 16px 28px;
     }
 
-    /* ヘッダー：黄色い帯 */
+    /* ── ヘッダー：店舗看板スタイル ── */
     .food-header {
-      background: #ffe900;
-      padding: 16px 24px 14px;
-      border-bottom: 4px solid #c8000f;
-      border-top: 4px solid #c8000f;
+      background: #fff;
+      border: 5px double #c8000f;   /* double でニ重枠 */
+      padding: 18px 16px 16px;
       text-align: center;
+      margin-bottom: 18px;
       position: relative;
+    }
+
+    /* 看板の上部スタンプ帯 */
+    .food-header-stamp {
+      display: inline-block;
+      background: #c8000f;
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      padding: 2px 14px;
+      margin-bottom: 10px;
     }
 
     .food-header .section-label {
       color: #c8000f;
-      font-size: 1.5rem;
-      letter-spacing: 0.08em;
-      -webkit-text-stroke: 1px #8a0008;
-      margin-bottom: 2px;
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      -webkit-text-stroke: 1.5px #8a0008;
+      display: block;
+      line-height: 1.1;
+      margin-bottom: 6px;
     }
 
     .food-header .section-desc {
-      color: #1a5c00;
-      font-size: 0.8rem;
-      font-weight: 700;
+      color: #333;
+      font-size: 0.82rem;
+      font-weight: 500;
       margin-bottom: 4px;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.04em;
     }
 
     .food-lead {
-      font-size: 0.88rem;
-      color: #333;
-      font-weight: 700;
+      font-size: 0.85rem;
+      color: #555;
       line-height: 1.6;
+      margin-bottom: 8px;
     }
 
-    /* 「無料！」バッジ */
     .food-free-badge {
       display: inline-block;
-      background: #1a5c00;
-      color: #ffe900;
-      font-size: 0.72rem;
+      background: #1e4d2b;
+      color: #fff;
+      font-size: 0.75rem;
       font-weight: 900;
-      padding: 3px 10px;
-      border-radius: 2px;
-      margin-top: 6px;
-      letter-spacing: 0.1em;
-      border: 2px solid #ffe900;
+      padding: 4px 16px;
+      letter-spacing: 0.12em;
+      border: 1px solid #0f3019;
     }
 
-    /* グリッド：全カード均等 */
+    /* ── カードグリッド：チラシ枠スタイル ── */
     .food-grid {
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 16px 12px 0;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
+      gap: 0;                        /* 隙間なし＝チラシの枠感 */
+      border: 2px solid #333;
     }
 
     .food-card {
-      background: #ffe900;
-      border: 3px solid #c8000f;
+      background: #fff;
+      border: 1px solid #555;
       overflow: visible;
       position: relative;
     }
@@ -697,7 +708,7 @@
     .food-photo-wrap {
       position: relative;
       overflow: hidden;
-      background: #c8a000;
+      background: #ccc;
       aspect-ratio: 1 / 1;
     }
 
@@ -710,7 +721,7 @@
     }
 
     .food-card:hover .food-photo-wrap > img {
-      transform: scale(1.05);
+      transform: scale(1.04);
     }
 
     .food-photo-ph {
@@ -719,40 +730,40 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #c8a000;
-      font-size: 0.62rem;
-      color: rgba(255,255,255,0.6);
+      background: #d8d0c4;
+      font-size: 0.6rem;
+      color: #aaa;
       letter-spacing: 0.04em;
     }
 
-    /* テキストエリア — avatarの基準点になる */
+    /* テキストエリア */
     .food-body {
       position: relative;
-      padding: 20px 8px 10px;
-      background: #ffe900;
+      padding: 36px 8px 10px;   /* 上：アバター分のスペース */
+      background: #fff;
+      border-top: 2px solid #333;
     }
 
-    /* 人物アイコン — food-bodyの上端・右に絶対配置（overflow:hiddenの外） */
+    /* 人物アイコン — 大きめ・写真とテキストの境目にまたがる */
     .food-avatar {
       position: absolute;
-      top: -28px;   /* 半分が写真にかかる */
+      top: -36px;
       right: 8px;
-      width: 52px;
-      height: 52px;
+      width: 68px;
+      height: 68px;
       border-radius: 50%;
-      border: 3px solid #ffe900;
-      box-shadow: 0 0 0 2px #c8000f;
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 2px #555, 2px 2px 6px rgba(0,0,0,0.25);
       overflow: hidden;
-      background: #c8a000;
+      background: #ccc;
       z-index: 3;
-      flex-shrink: 0;
     }
 
     .food-avatar img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top; /* 顔が上にある写真でも見切れない */
+      object-position: center top;
       display: block;
     }
 
@@ -762,42 +773,43 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #a07800;
+      background: #bbb;
     }
 
     .food-avatar-ph svg {
-      width: 20px;
-      height: 20px;
-      opacity: 0.5;
-      color: #ffe900;
+      width: 26px;
+      height: 26px;
+      opacity: 0.45;
+      color: #fff;
     }
 
+    /* 料理名 */
     .food-dish {
       font-size: 0.82rem;
       font-weight: 900;
-      color: #c8000f;
-      margin-bottom: 1px;
-      line-height: 1.3;
-      -webkit-text-stroke: 0.3px #8a0008;
+      color: #1a1a1a;
+      margin-bottom: 2px;
+      line-height: 1.35;
+      padding-right: 52px;   /* アバター分の余白 */
     }
 
+    /* 住民名 */
     .food-cook {
       font-size: 0.68rem;
-      color: #1a5c00;
+      color: #c8000f;
       font-weight: 700;
       margin-bottom: 6px;
     }
 
-    /* 吹き出し：白地に赤枠 */
+    /* 吹き出し */
     .food-bubble {
       display: inline-block;
-      background: #fff;
-      border: 2px solid #c8000f;
-      border-radius: 8px;
+      background: #f5f0e8;
+      border: 1px solid #bbb;
+      border-radius: 6px;
       padding: 4px 8px;
       font-size: 0.72rem;
-      color: #333;
-      font-weight: 700;
+      color: #444;
       line-height: 1.4;
       position: relative;
     }
@@ -805,10 +817,10 @@
     .food-bubble::before {
       content: '';
       position: absolute;
-      top: -8px;
+      top: -7px;
       left: 12px;
-      border: 8px solid transparent;
-      border-bottom-color: #c8000f;
+      border: 7px solid transparent;
+      border-bottom-color: #bbb;
       border-top: none;
     }
 
@@ -816,9 +828,9 @@
       content: '';
       position: absolute;
       top: -5px;
-      left: 14px;
+      left: 13px;
       border: 6px solid transparent;
-      border-bottom-color: #fff;
+      border-bottom-color: #f5f0e8;
       border-top: none;
     }
 
@@ -1292,6 +1304,7 @@
   ──────────────────────────────────────────────── -->
   <section class="section-food">
     <div class="food-header">
+      <span class="food-header-stamp">うつぼハウス 住民食堂</span>
       <p class="section-label">UTSUBO飯</p>
       <p class="section-desc">毎回、住民がつくる</p>
       <p class="food-lead">無料で出てくる飯が、毎回やたら本格的。</p>
