@@ -772,19 +772,10 @@
     /* 玉出「1円」スターバースト */
     .food-1yen {
       position: absolute;
-      top: 14px;
-      left: 6px;
-      width: 82px;
-      height: 82px;
-      clip-path: polygon(
-        50% 0%, 55.69% 28.75%, 75% 6.70%, 65.56% 34.44%,
-        93.30% 25%, 71.25% 44.31%, 100% 50%, 71.25% 55.69%,
-        93.30% 75%, 65.56% 65.56%, 75% 93.30%, 55.69% 71.25%,
-        50% 100%, 44.31% 71.25%, 25% 93.30%, 34.44% 65.56%,
-        6.70% 75%, 28.75% 55.69%, 0% 50%, 28.75% 44.31%,
-        6.70% 25%, 34.44% 34.44%, 25% 6.70%, 44.31% 28.75%
-      );
-      background: #e8001c;
+      top: 12px;
+      left: 4px;
+      width: 90px;
+      height: 90px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -794,23 +785,42 @@
       line-height: 1;
     }
 
+    /* スターバーストは ::before に適用してテキストが見切れないようにする */
+    .food-1yen::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: #e8001c;
+      clip-path: polygon(
+        50% 0%, 55.69% 28.75%, 75% 6.70%, 65.56% 34.44%,
+        93.30% 25%, 71.25% 44.31%, 100% 50%, 71.25% 55.69%,
+        93.30% 75%, 65.56% 65.56%, 75% 93.30%, 55.69% 71.25%,
+        50% 100%, 44.31% 71.25%, 25% 93.30%, 34.44% 65.56%,
+        6.70% 75%, 28.75% 55.69%, 0% 50%, 28.75% 44.31%,
+        6.70% 25%, 34.44% 34.44%, 25% 6.70%, 44.31% 28.75%
+      );
+      z-index: -1;
+    }
+
     .food-1yen-num {
-      font-size: 36px;
+      font-size: 40px;
       font-weight: 900;
       font-style: italic;
       font-family: 'Impact', 'Arial Black', sans-serif;
       color: #fff200;
       -webkit-text-stroke: 1.5px #8a0008;
       line-height: 1;
+      position: relative;
     }
 
     .food-1yen-char {
-      font-size: 15px;
+      font-size: 17px;
       font-weight: 900;
       font-style: italic;
       font-family: 'Impact', 'Arial Black', sans-serif;
       color: #fff200;
       -webkit-text-stroke: 0.8px #8a0008;
+      position: relative;
       line-height: 1;
       margin-top: -2px;
     }
@@ -1532,11 +1542,10 @@
       <div class="food-card">
         <div class="food-photo-wrap">
           <span class="food-number">5</span>
-          <!-- <img src="photos/food5.jpg" alt="料理名"> -->
-          <div class="food-photo-ph">food5.jpg</div>
+          <img src="photos/food5.jpg" alt="料理名">
         </div>
         <div class="food-body">
-          <div class="food-avatar"><div class="food-avatar-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div></div>
+          <div class="food-avatar"><img src="photos/cook5.jpg" alt="住民" style="object-position: center top;"></div>
           <p class="food-dish"><!-- [料理名] --></p>
           <p class="food-cook">村上元基</p>
           <div class="food-bubble"><!-- [ひとこと] --></div>
@@ -1547,14 +1556,13 @@
       <div class="food-card">
         <div class="food-photo-wrap">
           <span class="food-number">6</span>
-          <!-- <img src="photos/food6.jpg" alt="料理名"> -->
-          <div class="food-photo-ph">food6.jpg</div>
+          <img src="photos/food6.jpg" alt="料理名">
         </div>
         <div class="food-body">
-          <div class="food-avatar"><div class="food-avatar-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div></div>
-          <p class="food-dish"><!-- [料理名] --></p>
+          <div class="food-avatar"><img src="photos/cook6.jpg" alt="住民" style="object-position: center top;"></div>
+          <p class="food-dish">牛乳パックで作るチョコムース</p>
           <p class="food-cook">小穴航平</p>
-          <div class="food-bubble"><!-- [ひとこと] --></div>
+          <div class="food-bubble">うまいよ、恐らく</div>
         </div>
       </div>
 
@@ -1583,7 +1591,7 @@
         <div class="food-body">
           <div class="food-avatar"><div class="food-avatar-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div></div>
           <p class="food-dish"><!-- [料理名] --></p>
-          <p class="food-cook"><!-- [住民名] --></p>
+          <p class="food-cook">木口朝陽</p>
           <div class="food-bubble"><!-- [ひとこと] --></div>
         </div>
       </div>
@@ -1598,7 +1606,7 @@
         <div class="food-body">
           <div class="food-avatar"><div class="food-avatar-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div></div>
           <p class="food-dish"><!-- [料理名] --></p>
-          <p class="food-cook"><!-- [住民名] --></p>
+          <p class="food-cook">本多令旺</p>
           <div class="food-bubble"><!-- [ひとこと] --></div>
         </div>
       </div>
@@ -1613,7 +1621,7 @@
         <div class="food-body">
           <div class="food-avatar"><div class="food-avatar-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div></div>
           <p class="food-dish"><!-- [料理名] --></p>
-          <p class="food-cook"><!-- [住民名] --></p>
+          <p class="food-cook">柊渚</p>
           <div class="food-bubble"><!-- [ひとこと] --></div>
         </div>
       </div>
@@ -1624,6 +1632,36 @@
           <span class="food-number">11</span>
           <!-- <img src="photos/food11.jpg" alt="料理名"> -->
           <div class="food-photo-ph">food11.jpg</div>
+        </div>
+        <div class="food-body">
+          <div class="food-avatar"><div class="food-avatar-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div></div>
+          <p class="food-dish"><!-- [料理名] --></p>
+          <p class="food-cook">井上絵理</p>
+          <div class="food-bubble"><!-- [ひとこと] --></div>
+        </div>
+      </div>
+
+      <!-- FOOD 12 -->
+      <div class="food-card">
+        <div class="food-photo-wrap">
+          <span class="food-number">12</span>
+          <!-- <img src="photos/food12.jpg" alt="料理名"> -->
+          <div class="food-photo-ph">food12.jpg</div>
+        </div>
+        <div class="food-body">
+          <div class="food-avatar"><div class="food-avatar-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div></div>
+          <p class="food-dish"><!-- [料理名] --></p>
+          <p class="food-cook"><!-- [住民名] --></p>
+          <div class="food-bubble"><!-- [ひとこと] --></div>
+        </div>
+      </div>
+
+      <!-- FOOD 13 -->
+      <div class="food-card">
+        <div class="food-photo-wrap">
+          <span class="food-number">13</span>
+          <!-- <img src="photos/food13.jpg" alt="料理名"> -->
+          <div class="food-photo-ph">food13.jpg</div>
         </div>
         <div class="food-body">
           <div class="food-avatar"><div class="food-avatar-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div></div>
