@@ -804,6 +804,29 @@
       transform: scale(1.04);
     }
 
+    /* 玉出スタイル番号バッジ */
+    .food-number {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      z-index: 10;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      background: #e8001c;
+      font-size: 22px;
+      font-weight: 900;
+      font-style: italic;
+      font-family: 'Impact', 'Arial Black', sans-serif;
+      color: #fff200;
+      -webkit-text-stroke: 1px #c8000f;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
     .food-photo-ph {
       width: 100%;
       height: 100%;
@@ -1400,48 +1423,52 @@
       <!-- FOOD 1 -->
       <div class="food-card">
         <div class="food-photo-wrap">
+          <span class="food-number">1</span>
           <img src="photos/food1.jpg" alt="ハンバーグ丼">
         </div>
         <div class="food-body">
           <div class="food-avatar">
             <img src="photos/cook1.jpg" alt="住民" style="object-position: center 15%;">
           </div>
-          <p class="food-dish">白米定食</p>
-          <p class="food-cook">ライス尚也</p>
-          <div class="food-bubble">挑戦の哲学を語ります</div>
+          <p class="food-dish">肉焼卵バーガー</p>
+          <p class="food-cook">辻尚也</p>
+          <div class="food-bubble">米を前提にした生活</div>
         </div>
       </div>
 
       <!-- FOOD 2 -->
       <div class="food-card">
         <div class="food-photo-wrap">
+          <span class="food-number">2</span>
           <img src="photos/food2.jpg" alt="料理名">
         </div>
         <div class="food-body">
           <div class="food-avatar"><img src="photos/cook2.jpg" alt="住民" style="object-position: center top;"></div>
-          <p class="food-dish">十割2.0</p>
-          <p class="food-cook">十山割秋</p>
-          <div class="food-bubble">無限を届けます</div>
+          <p class="food-dish">十割10.0ランチ</p>
+          <p class="food-cook">炎山友秋</p>
+          <div class="food-bubble">10割+α=♾️</div>
         </div>
       </div>
 
       <!-- FOOD 3 -->
       <div class="food-card">
         <div class="food-photo-wrap">
+          <span class="food-number">3</span>
           <!-- <img src="photos/food3.jpg" alt="料理名"> -->
           <div class="food-photo-ph">food3.jpg</div>
         </div>
         <div class="food-body">
           <div class="food-avatar"><div class="food-avatar-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div></div>
-          <p class="food-dish"><!-- [料理名] --></p>
-          <p class="food-cook"><!-- [住民名] --></p>
-          <div class="food-bubble"><!-- [ひとこと] --></div>
+          <p class="food-dish">サイゼリヤのペべロンチーノ</p>
+          <p class="food-cook">武田吉平</p>
+          <div class="food-bubble">チェーン店の再現ペペロンチーノ全制覇</div>
         </div>
       </div>
 
       <!-- FOOD 4 -->
       <div class="food-card">
         <div class="food-photo-wrap">
+          <span class="food-number">4</span>
           <!-- <img src="photos/food4.jpg" alt="料理名"> -->
           <div class="food-photo-ph">food4.jpg</div>
         </div>
@@ -1456,6 +1483,7 @@
       <!-- FOOD 5 -->
       <div class="food-card">
         <div class="food-photo-wrap">
+          <span class="food-number">5</span>
           <!-- <img src="photos/food5.jpg" alt="料理名"> -->
           <div class="food-photo-ph">food5.jpg</div>
         </div>
@@ -1470,6 +1498,7 @@
       <!-- FOOD 6 -->
       <div class="food-card">
         <div class="food-photo-wrap">
+          <span class="food-number">6</span>
           <!-- <img src="photos/food6.jpg" alt="料理名"> -->
           <div class="food-photo-ph">food6.jpg</div>
         </div>
@@ -1484,6 +1513,7 @@
       <!-- FOOD 7 -->
       <div class="food-card">
         <div class="food-photo-wrap">
+          <span class="food-number">7</span>
           <!-- <img src="photos/food7.jpg" alt="料理名"> -->
           <div class="food-photo-ph">food7.jpg</div>
         </div>
