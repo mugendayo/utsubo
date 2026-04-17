@@ -769,6 +769,52 @@
       border: 1px solid #0f3019;
     }
 
+    /* 玉出「1円」スターバースト */
+    .food-1yen {
+      position: absolute;
+      top: 14px;
+      left: 6px;
+      width: 82px;
+      height: 82px;
+      clip-path: polygon(
+        50% 0%, 55.69% 28.75%, 75% 6.70%, 65.56% 34.44%,
+        93.30% 25%, 71.25% 44.31%, 100% 50%, 71.25% 55.69%,
+        93.30% 75%, 65.56% 65.56%, 75% 93.30%, 55.69% 71.25%,
+        50% 100%, 44.31% 71.25%, 25% 93.30%, 34.44% 65.56%,
+        6.70% 75%, 28.75% 55.69%, 0% 50%, 28.75% 44.31%,
+        6.70% 25%, 34.44% 34.44%, 25% 6.70%, 44.31% 28.75%
+      );
+      background: #e8001c;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 6;
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .food-1yen-num {
+      font-size: 36px;
+      font-weight: 900;
+      font-style: italic;
+      font-family: 'Impact', 'Arial Black', sans-serif;
+      color: #fff200;
+      -webkit-text-stroke: 1.5px #8a0008;
+      line-height: 1;
+    }
+
+    .food-1yen-char {
+      font-size: 15px;
+      font-weight: 900;
+      font-style: italic;
+      font-family: 'Impact', 'Arial Black', sans-serif;
+      color: #fff200;
+      -webkit-text-stroke: 0.8px #8a0008;
+      line-height: 1;
+      margin-top: -2px;
+    }
+
     /* ── カードグリッド：チラシ枠スタイル ── */
     .food-grid {
       display: grid;
@@ -1407,6 +1453,10 @@
   ──────────────────────────────────────────────── -->
   <section class="section-food">
     <div class="food-header">
+      <span class="food-1yen" aria-hidden="true">
+        <span class="food-1yen-num">1</span>
+        <span class="food-1yen-char">円</span>
+      </span>
       <span class="food-sun food-sun--tl" aria-hidden="true"></span>
       <span class="food-sun food-sun--tr" aria-hidden="true"></span>
       <span class="food-sun food-sun--bl" aria-hidden="true"></span>
@@ -1488,7 +1538,7 @@
         <div class="food-body">
           <div class="food-avatar"><div class="food-avatar-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div></div>
           <p class="food-dish"><!-- [料理名] --></p>
-          <p class="food-cook">柊渚</p>
+          <p class="food-cook">村上元基</p>
           <div class="food-bubble"><!-- [ひとこと] --></div>
         </div>
       </div>
