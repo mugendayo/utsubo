@@ -646,33 +646,33 @@
       padding: 0 24px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      gap: 14px;
     }
 
-    /* 1枚目だけ全幅で目を引く */
+    /* 1枚目だけ全幅 */
     .food-card:first-child {
       grid-column: 1 / -1;
     }
 
     .food-card {
       background: #fff;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      overflow: visible; /* アイコンがはみ出すので visible */
     }
 
-    .food-photo {
-      width: 100%;
-      aspect-ratio: 4 / 3;
+    /* 料理写真ラッパー（人物アイコンの position 基準） */
+    .food-photo-wrap {
+      position: relative;
       overflow: hidden;
       background: #e8e4dc;
+      aspect-ratio: 1 / 1;
     }
 
-    /* 1枚目は横長でより食欲をそそる */
-    .food-card:first-child .food-photo {
-      aspect-ratio: 16 / 9;
+    .food-card:first-child .food-photo-wrap {
+      aspect-ratio: 4 / 3;
     }
 
-    .food-photo img {
+    .food-photo-wrap > img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -680,8 +680,8 @@
       transition: transform 0.4s ease;
     }
 
-    .food-card:hover .food-photo img {
-      transform: scale(1.03);
+    .food-card:hover .food-photo-wrap > img {
+      transform: scale(1.04);
     }
 
     .food-photo-ph {
@@ -691,27 +691,78 @@
       align-items: center;
       justify-content: center;
       background: #ede8e0;
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       color: #bbb;
       letter-spacing: 0.04em;
     }
 
+    /* 人物アイコン（右下に重ねる） */
+    .food-avatar {
+      position: absolute;
+      bottom: -14px;
+      right: 10px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+      overflow: hidden;
+      background: #d0ccc4;
+      z-index: 2;
+    }
+
+    .food-card:first-child .food-avatar {
+      width: 62px;
+      height: 62px;
+      bottom: -18px;
+    }
+
+    .food-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .food-avatar-ph {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .food-avatar-ph svg {
+      width: 22px;
+      height: 22px;
+      opacity: 0.4;
+    }
+
+    /* 料理名・吹き出しエリア（写真の外） */
     .food-body {
-      padding: 10px 12px 12px;
+      padding: 22px 12px 12px; /* 上部はアイコン分のスペース */
+    }
+
+    .food-card:first-child .food-body {
+      padding-top: 26px;
     }
 
     .food-dish {
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       font-weight: 700;
       color: #2D2D2D;
       margin-bottom: 1px;
       line-height: 1.4;
     }
 
+    .food-card:first-child .food-dish {
+      font-size: 0.95rem;
+    }
+
     .food-cook {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       color: #E8734A;
-      margin-bottom: 7px;
+      margin-bottom: 8px;
     }
 
     /* 吹き出し */
@@ -721,7 +772,7 @@
       border: 1px solid #f0d8c8;
       border-radius: 10px;
       padding: 5px 10px;
-      font-size: 0.76rem;
+      font-size: 0.74rem;
       color: #7a5a48;
       line-height: 1.5;
       position: relative;
@@ -1224,11 +1275,17 @@
 
     <div class="food-grid">
 
-      <!-- [FOOD 1: 一番映える料理。全幅で表示] -->
+      <!-- FOOD 1（全幅・一番映える料理） -->
       <div class="food-card">
-        <div class="food-photo">
+        <div class="food-photo-wrap">
           <!-- <img src="photos/food1.jpg" alt="料理名"> -->
-          <div class="food-photo-ph">PHOTO — food1.jpg</div>
+          <div class="food-photo-ph">food1.jpg</div>
+          <div class="food-avatar">
+            <!-- <img src="photos/[住民の顔写真]" alt="住民名"> -->
+            <div class="food-avatar-ph">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            </div>
+          </div>
         </div>
         <div class="food-body">
           <p class="food-dish"><!-- [料理名] 例: 自家製キーマカレー --></p>
@@ -1237,11 +1294,15 @@
         </div>
       </div>
 
-      <!-- [FOOD 2] -->
+      <!-- FOOD 2 -->
       <div class="food-card">
-        <div class="food-photo">
+        <div class="food-photo-wrap">
           <!-- <img src="photos/food2.jpg" alt="料理名"> -->
           <div class="food-photo-ph">food2.jpg</div>
+          <div class="food-avatar">
+            <!-- <img src="photos/[住民の顔写真]" alt="住民名"> -->
+            <div class="food-avatar-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+          </div>
         </div>
         <div class="food-body">
           <p class="food-dish"><!-- [料理名] --></p>
@@ -1250,11 +1311,15 @@
         </div>
       </div>
 
-      <!-- [FOOD 3] -->
+      <!-- FOOD 3 -->
       <div class="food-card">
-        <div class="food-photo">
+        <div class="food-photo-wrap">
           <!-- <img src="photos/food3.jpg" alt="料理名"> -->
           <div class="food-photo-ph">food3.jpg</div>
+          <div class="food-avatar">
+            <!-- <img src="photos/[住民の顔写真]" alt="住民名"> -->
+            <div class="food-avatar-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+          </div>
         </div>
         <div class="food-body">
           <p class="food-dish"><!-- [料理名] --></p>
@@ -1263,11 +1328,15 @@
         </div>
       </div>
 
-      <!-- [FOOD 4] -->
+      <!-- FOOD 4 -->
       <div class="food-card">
-        <div class="food-photo">
+        <div class="food-photo-wrap">
           <!-- <img src="photos/food4.jpg" alt="料理名"> -->
           <div class="food-photo-ph">food4.jpg</div>
+          <div class="food-avatar">
+            <!-- <img src="photos/[住民の顔写真]" alt="住民名"> -->
+            <div class="food-avatar-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+          </div>
         </div>
         <div class="food-body">
           <p class="food-dish"><!-- [料理名] --></p>
@@ -1276,11 +1345,15 @@
         </div>
       </div>
 
-      <!-- [FOOD 5] -->
+      <!-- FOOD 5 -->
       <div class="food-card">
-        <div class="food-photo">
+        <div class="food-photo-wrap">
           <!-- <img src="photos/food5.jpg" alt="料理名"> -->
           <div class="food-photo-ph">food5.jpg</div>
+          <div class="food-avatar">
+            <!-- <img src="photos/[住民の顔写真]" alt="住民名"> -->
+            <div class="food-avatar-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+          </div>
         </div>
         <div class="food-body">
           <p class="food-dish"><!-- [料理名] --></p>
@@ -1289,11 +1362,15 @@
         </div>
       </div>
 
-      <!-- [FOOD 6] -->
+      <!-- FOOD 6 -->
       <div class="food-card">
-        <div class="food-photo">
+        <div class="food-photo-wrap">
           <!-- <img src="photos/food6.jpg" alt="料理名"> -->
           <div class="food-photo-ph">food6.jpg</div>
+          <div class="food-avatar">
+            <!-- <img src="photos/[住民の顔写真]" alt="住民名"> -->
+            <div class="food-avatar-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+          </div>
         </div>
         <div class="food-body">
           <p class="food-dish"><!-- [料理名] --></p>
@@ -1302,11 +1379,15 @@
         </div>
       </div>
 
-      <!-- [FOOD 7] -->
+      <!-- FOOD 7 -->
       <div class="food-card">
-        <div class="food-photo">
+        <div class="food-photo-wrap">
           <!-- <img src="photos/food7.jpg" alt="料理名"> -->
           <div class="food-photo-ph">food7.jpg</div>
+          <div class="food-avatar">
+            <!-- <img src="photos/[住民の顔写真]" alt="住民名"> -->
+            <div class="food-avatar-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+          </div>
         </div>
         <div class="food-body">
           <p class="food-dish"><!-- [料理名] --></p>
