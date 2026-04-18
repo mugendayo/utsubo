@@ -1349,10 +1349,66 @@
     }
 
     .pitch-review-meta {
-      font-size: 0.65rem;
-      color: #f5c842;
-      margin: 0;
-      letter-spacing: 0.05em;
+      margin: 8px 0 0;
+    }
+
+    .meta-name {
+      font-size: 0.68rem;
+      color: rgba(245,200,66,0.85);
+      letter-spacing: 0.08em;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .meta-before,
+    .meta-after {
+      display: block;
+      position: relative;
+      padding-left: 15px;
+      font-size: 0.61rem;
+      line-height: 1.45;
+    }
+
+    .meta-before {
+      color: rgba(232,224,208,0.42);
+      padding-bottom: 7px;
+    }
+
+    .meta-before::before {
+      content: '';
+      position: absolute;
+      left: 2px;
+      top: 4px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      border: 1px solid rgba(232,224,208,0.35);
+    }
+
+    .meta-before::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 11px;
+      width: 1px;
+      bottom: 0;
+      background: rgba(232,224,208,0.15);
+    }
+
+    .meta-after {
+      color: rgba(232,224,208,0.75);
+    }
+
+    .meta-after::before {
+      content: '';
+      position: absolute;
+      left: 0px;
+      top: 3px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: rgba(245,200,66,0.22);
+      border: 1px solid rgba(245,200,66,0.45);
     }
 
     /* スワイプドット */
@@ -1850,19 +1906,19 @@
       <div class="pitch-reviews" id="pitchReviews">
         <div class="pitch-review">
           <p class="pitch-review-text">「楽しかったです！案外、自分のビジョンって人に知られていなかったんだなと。もっとビジョンを語るようにします。」</p>
-          <p class="pitch-review-meta">N.H ／ フリーランス動画クリエイター → 一般社団法人 ステージ演出・人材育成事業</p>
+          <div class="pitch-review-meta"><span class="meta-name">N.H</span><span class="meta-before">フリーランス動画クリエイター</span><span class="meta-after">一般社団法人 ステージ演出・人材育成事業</span></div>
         </div>
         <div class="pitch-review">
           <p class="pitch-review-text">「プレゼン力を上げたいと思った。大衆とのコミュニケーションの難しさを感じた。でも、プレゼン後に話しかけてくださる方がいたり、人の思いに刺さってる言葉があったりしたので、プレゼンさせていただけてよかった。」</p>
-          <p class="pitch-review-meta">R.I ／ 同志社大学 → フードテック企業 ブランドカルチャライズ担当として渡米</p>
+          <div class="pitch-review-meta"><span class="meta-name">R.I</span><span class="meta-before">同志社大学</span><span class="meta-after">フードテック企業 ブランドカルチャライズ担当として渡米</span></div>
         </div>
         <div class="pitch-review">
           <p class="pitch-review-text">「自分が構想していることが、どう受け取られるのか、解像度を上げられるところはどこかが明確になりました！」</p>
-          <p class="pitch-review-meta">M.T ／ 地方音楽専門大学 → 地方創生企画・広告代理店業の主催運営</p>
+          <div class="pitch-review-meta"><span class="meta-name">M.T</span><span class="meta-before">地方音楽専門大学</span><span class="meta-after">地方創生企画・広告代理店業の主催運営</span></div>
         </div>
         <div class="pitch-review">
           <p class="pitch-review-text">「一番の感情としては悔しいという気持ち。と同時にやってよかったと本当に思います。プレゼンって自分で機会を作りに／掴みにいかないとなかなかできないものだけど、プレゼンできないものは普通の会話でもろくに話せないんだろうなと思いました。」</p>
-          <p class="pitch-review-meta">A.K ／ 現代アート施設併設飲食店勤務 → ECサイト開発運用代行企業マネージャー・間借りスナック運営</p>
+          <div class="pitch-review-meta"><span class="meta-name">A.K</span><span class="meta-before">現代アート施設併設飲食店勤務</span><span class="meta-after">ECサイト開発運用代行企業マネージャー・間借りスナック運営</span></div>
         </div>
       </div>
       <div class="pitch-dots" id="pitchDots">
@@ -1919,10 +1975,10 @@
     <div class="stats-grid" id="statsGrid">
       <div class="stats-card">
         <div><span class="stats-card-num" data-target="46">0</span><span class="stats-card-unit">名</span></div>
-        <div class="stats-card-label">住民数</div>
+        <div class="stats-card-label">住民数（累計）</div>
       </div>
       <div class="stats-card">
-        <div><span class="stats-card-num" data-target="8">0</span><span class="stats-card-unit">社</span></div>
+        <div><span class="stats-card-num" data-target="9">0</span><span class="stats-card-unit">社</span></div>
         <div class="stats-card-label">法人登記</div>
       </div>
       <div class="stats-card">
