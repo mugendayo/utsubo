@@ -1195,43 +1195,42 @@
     .pitch-reviews {
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      margin-top: 20px;
-      margin-bottom: 12px;
+      gap: 5px;
+      margin-top: 14px;
+      margin-bottom: 8px;
     }
 
     .pitch-review {
       background: #f8f6f2;
-      border-left: 3px solid #E8734A;
-      padding: 12px 14px;
-      font-size: 0.85rem;
+      border-left: 2px solid #E8734A;
+      padding: 6px 10px;
+      font-size: 0.72rem;
       color: #3a3a3a;
-      line-height: 1.75;
+      line-height: 1.6;
     }
 
     .pitch-review-meta {
-      margin-top: 6px;
-      font-size: 0.72rem;
-      color: #999;
+      margin-top: 3px;
+      font-size: 0.64rem;
+      color: #bbb;
     }
 
     .pitch-note {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: #888;
-      margin-top: 10px;
+      margin-top: 8px;
       margin-bottom: 0;
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
     /* Fighter Pass スタイル — 今回のキャスト */
     .pitch-fighter {
-      background: linear-gradient(105deg, #0a1628 0%, #0e2240 40%, #1a3a5c 100%);
-      margin-top: 24px;
+      background: linear-gradient(105deg, #08121e 0%, #0c1c30 50%, #152a42 100%);
+      margin-top: 20px;
       position: relative;
       overflow: hidden;
       display: flex;
       align-items: stretch;
-      min-height: 100px;
     }
 
     .pitch-fighter::before {
@@ -1239,69 +1238,78 @@
       position: absolute;
       inset: 0;
       background: repeating-linear-gradient(
-        -55deg,
-        transparent,
-        transparent 18px,
-        rgba(255,255,255,0.015) 18px,
-        rgba(255,255,255,0.015) 19px
+        -55deg, transparent, transparent 20px,
+        rgba(255,255,255,0.012) 20px, rgba(255,255,255,0.012) 21px
       );
       pointer-events: none;
     }
 
+    /* 左タイトル：挑戦者現る風 */
     .pitch-fighter-title {
       flex-shrink: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 14px 14px 14px 18px;
+      padding: 12px 10px 12px 14px;
       position: relative;
       z-index: 1;
-      min-width: 90px;
-      max-width: 110px;
-    }
-
-    .pitch-fighter-title .label {
-      display: block;
-      font-size: 0.52rem;
-      letter-spacing: 0.14em;
-      color: #f5c842;
-      font-weight: 700;
-      margin-bottom: 3px;
-      opacity: 0.85;
+      width: 72px;
     }
 
     .pitch-fighter-title .main {
       display: block;
-      font-size: 0.95rem;
+      font-size: 1.05rem;
       font-weight: 900;
+      font-style: italic;
       color: #f5c842;
-      letter-spacing: 0.02em;
-      text-shadow: 0 0 12px rgba(245,200,66,0.5), 1px 1px 0 rgba(0,0,0,0.8);
-      line-height: 1.25;
+      line-height: 1.15;
+      letter-spacing: 0.04em;
+      text-shadow:
+        -1px -1px 0 #000, 1px -1px 0 #000,
+        -1px  1px 0 #000, 1px  1px 0 #000,
+        0 0 16px rgba(245,200,66,0.7),
+        0 0 32px rgba(245,200,66,0.3);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
+
+    /* 斜め区切り線（タイトルと写真の境界） */
+    .pitch-fighter-divider {
+      width: 24px;
+      flex-shrink: 0;
+      background: linear-gradient(to bottom right, #08121e 49%, #f5c842 50%, #f5c842 51%, #08121e 52%);
+      position: relative;
+      z-index: 1;
     }
 
     .pitch-fighter-cards {
       display: flex;
       flex: 1;
-      gap: 0;
       position: relative;
     }
 
     .pitch-fighter-card {
       flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       position: relative;
+      overflow: hidden;
+    }
+
+    /* 斜め切り込みは clip-path で実現 */
+    .pitch-fighter-card:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 0; right: -1px; bottom: 0;
+      width: 20px;
+      background: linear-gradient(to bottom right, transparent 49%, #08121e 50%);
+      z-index: 3;
+      pointer-events: none;
     }
 
     .pitch-fighter-photo {
       width: 100%;
-      aspect-ratio: 1 / 1;
-      overflow: hidden;
+      aspect-ratio: 3 / 4;
       position: relative;
       background: #0a1628;
-      border-left: 1px solid rgba(245,200,66,0.2);
     }
 
     .pitch-fighter-photo img {
@@ -1309,53 +1317,43 @@
       height: 100%;
       object-fit: cover;
       object-position: center top;
-      filter: contrast(1.1) saturate(0.85) brightness(0.9);
+      filter: contrast(1.08) saturate(0.88) brightness(0.88);
+      display: block;
     }
 
-    .pitch-fighter-photo::after {
+    /* 下グラデ（名前用） */
+    .pitch-fighter-photo::before {
       content: '';
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      height: 55%;
-      background: linear-gradient(to top, rgba(10,22,40,0.9), transparent);
-    }
-
-    .pitch-fighter-role {
-      position: absolute;
-      top: 5px;
-      left: 5px;
-      background: #f5c842;
-      color: #0a1628;
-      font-size: 0.5rem;
-      font-weight: 900;
-      padding: 1px 5px;
-      letter-spacing: 0.1em;
-      z-index: 2;
+      height: 45%;
+      background: linear-gradient(to top, rgba(8,18,30,0.92), transparent);
+      z-index: 1;
     }
 
     .pitch-fighter-name {
       position: absolute;
-      bottom: 16px;
+      bottom: 18px;
       left: 0; right: 0;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 700;
       color: #fff;
       text-align: center;
-      letter-spacing: 0.04em;
       z-index: 2;
-      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+      text-shadow: 0 1px 6px rgba(0,0,0,0.9);
+      letter-spacing: 0.04em;
     }
 
-    .pitch-fighter-theme {
+    .pitch-fighter-role {
       position: absolute;
-      bottom: 5px;
+      bottom: 6px;
       left: 0; right: 0;
-      font-size: 0.58rem;
+      font-size: 0.55rem;
+      font-weight: 900;
       color: #f5c842;
       text-align: center;
+      letter-spacing: 0.12em;
       z-index: 2;
-      line-height: 1.3;
-      padding: 0 4px;
     }
 
     /* お断りブロック */
@@ -1622,8 +1620,8 @@
 
   <!-- PITCH ─────────────────────────────────────────── -->
   <section class="section-pitch">
-    <p class="section-label">住民ピッチ</p>
-    <p class="section-desc">今やっていることを5分で話す</p>
+    <p class="section-label">ゲストピッチ</p>
+    <p class="section-desc">感謝祭でしゃべりたい人向けにピッチの機会を用意しています</p>
 
     <!-- 過去ピッチ口コミ -->
     <div class="pitch-reviews">
@@ -1649,35 +1647,32 @@
     <!-- Fighter Pass スタイル — 今回のキャスト -->
     <div class="pitch-fighter">
       <div class="pitch-fighter-title">
-        <span class="label">PITCHER × MC</span>
-        <span class="main">今回の<br>キャスト</span>
+        <span class="main">住民ピッチ</span>
       </div>
+      <div class="pitch-fighter-divider"></div>
       <div class="pitch-fighter-cards">
 
         <div class="pitch-fighter-card">
           <div class="pitch-fighter-photo">
-            <span class="pitch-fighter-role">PITCHER</span>
             <img src="photos/cook8.jpg" alt="木口朝陽">
             <p class="pitch-fighter-name">木口朝陽</p>
-            <p class="pitch-fighter-theme"><!-- [テーマ] --></p>
+            <p class="pitch-fighter-role">PITCHER</p>
           </div>
         </div>
 
         <div class="pitch-fighter-card">
           <div class="pitch-fighter-photo">
-            <span class="pitch-fighter-role">PITCHER</span>
             <img src="photos/host1.png" alt="炎山友秋">
             <p class="pitch-fighter-name">炎山友秋</p>
-            <p class="pitch-fighter-theme"><!-- [テーマ] --></p>
+            <p class="pitch-fighter-role">PITCHER</p>
           </div>
         </div>
 
         <div class="pitch-fighter-card">
           <div class="pitch-fighter-photo">
-            <span class="pitch-fighter-role">MC</span>
             <img src="photos/cook3.jpg" alt="武田吉平">
             <p class="pitch-fighter-name">武田吉平</p>
-            <p class="pitch-fighter-theme">司会</p>
+            <p class="pitch-fighter-role">MC</p>
           </div>
         </div>
 
