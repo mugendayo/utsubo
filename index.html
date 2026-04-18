@@ -1187,8 +1187,8 @@
     .section-pitch {
       max-width: 640px;
       margin: 0 auto;
-      padding: 44px 24px 46px;
-      border-bottom: 1px solid #e0e0da;
+      padding: 44px 24px 0;
+      border-bottom: none;
     }
 
     /* 過去口コミ */
@@ -1197,7 +1197,7 @@
       flex-direction: column;
       gap: 14px;
       margin-top: 20px;
-      margin-bottom: 36px;
+      margin-bottom: 12px;
     }
 
     .pitch-review {
@@ -1215,69 +1215,131 @@
       color: #999;
     }
 
-    /* 今回ピッチする住民 */
-    .pitch-label-sub {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: #E8734A;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
+    .pitch-note {
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 10px;
+      margin-bottom: 0;
+      line-height: 1.6;
     }
 
-    .pitch-members {
+    /* Fighter Pass スタイル — 今回のキャスト */
+    .pitch-fighter {
+      background: linear-gradient(135deg, #0d1b2a 0%, #1a2a3a 60%, #0d1b2a 100%);
+      padding: 28px 24px 32px;
+      margin-top: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pitch-fighter::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,0.02) 40px,
+        rgba(255,255,255,0.02) 41px
+      );
+      pointer-events: none;
+    }
+
+    .pitch-fighter-title {
+      text-align: center;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .pitch-fighter-title .label {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: #f5c842;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .pitch-fighter-title .main {
+      display: block;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #f5c842;
+      letter-spacing: 0.06em;
+      text-shadow: 0 0 20px rgba(245,200,66,0.4), 2px 2px 0 rgba(0,0,0,0.6);
+      line-height: 1.2;
+    }
+
+    .pitch-fighter-cards {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      position: relative;
+    }
+
+    .pitch-fighter-card {
+      flex: 1;
+      max-width: 160px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      align-items: center;
+      position: relative;
     }
 
-    .pitch-member {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 12px;
-      border: 1px solid #e0e0da;
-      background: #fff;
-    }
-
-    .pitch-member-avatar {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
+    .pitch-fighter-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
       overflow: hidden;
-      flex-shrink: 0;
-      background: #ddd;
+      border: 2px solid rgba(245,200,66,0.5);
+      position: relative;
+      background: #1a2a3a;
     }
 
-    .pitch-member-avatar img {
+    .pitch-fighter-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center top;
+      filter: contrast(1.05) saturate(0.9);
     }
 
-    .pitch-member-info {
-      flex: 1;
+    .pitch-fighter-photo::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 50%;
+      background: linear-gradient(to top, rgba(13,27,42,0.85), transparent);
     }
 
-    .pitch-member-name {
-      font-size: 0.88rem;
+    .pitch-fighter-role {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      background: #f5c842;
+      color: #0d1b2a;
+      font-size: 0.58rem;
+      font-weight: 900;
+      padding: 2px 6px;
+      letter-spacing: 0.08em;
+      z-index: 2;
+    }
+
+    .pitch-fighter-name {
+      margin-top: 8px;
+      font-size: 0.82rem;
       font-weight: 700;
-      color: #1a1a1a;
-      margin-bottom: 2px;
+      color: #fff;
+      text-align: center;
+      letter-spacing: 0.04em;
     }
 
-    .pitch-member-theme {
-      font-size: 0.78rem;
-      color: #E8734A;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .pitch-member-desc {
-      font-size: 0.78rem;
-      color: #666;
-      line-height: 1.6;
+    .pitch-fighter-theme {
+      font-size: 0.68rem;
+      color: #f5c842;
+      text-align: center;
+      margin-top: 2px;
+      line-height: 1.4;
     }
 
     /* お断りブロック */
@@ -1550,59 +1612,60 @@
     <!-- 過去ピッチ口コミ -->
     <div class="pitch-reviews">
       <div class="pitch-review">
-        <!-- [口コミ1] -->
-        「ピッチを聞いてから雑談が全然変わった。話のとっかかりができるから、初対面でも自然と深い話になる。」
-        <p class="pitch-review-meta"><!-- [名前・属性] 例: 大学4年・起業準備中 --></p>
-      </div>
-      <div class="pitch-review">
-        <!-- [口コミ2] -->
-        「自分も発表してみたら、フィードバックが思ったより鋭くて驚いた。身内っぽい場所なのにちゃんと本気で聞いてくれる。」
+        「楽しかったです！案外、自分のビジョンって人に知られていなかったんだなと。もっとビジョンを語るようにします。」
         <p class="pitch-review-meta"><!-- [名前・属性] --></p>
       </div>
       <div class="pitch-review">
-        <!-- [口コミ3] -->
-        「住民の人たちの話が面白すぎて、気づいたら終電なくなってた。」
+        「プレゼン力を上げたいと思った。大衆とのコミュニケーションの難しさを感じた。でも、プレゼン後に話しかけてくださる方がいたり、人の思いに刺さってる言葉があったりしたので、プレゼンさせていただけてよかった。」
+        <p class="pitch-review-meta"><!-- [名前・属性] --></p>
+      </div>
+      <div class="pitch-review">
+        「自分が構想していることが、どう受け取られるのか、解像度を上げられるところはどこかが明確になりました！」
+        <p class="pitch-review-meta"><!-- [名前・属性] --></p>
+      </div>
+      <div class="pitch-review">
+        「一番の感情としては悔しいという気持ち。と同時にやってよかったと本当に思います。プレゼンって自分で機会を作りに／掴みにいかないとなかなかできないものだけど、プレゼンできないものは普通の会話でもろくに話せないんだろうなと思いました。」
         <p class="pitch-review-meta"><!-- [名前・属性] --></p>
       </div>
     </div>
+    <p class="pitch-note">住民は毎回ピッチします。参加者も有志でピッチ可能です。</p>
 
-    <!-- 今回ピッチする住民 -->
-    <p class="pitch-label-sub">今回ピッチする住民</p>
-    <div class="pitch-members">
-
-      <div class="pitch-member">
-        <div class="pitch-member-avatar">
-          <!-- <img src="photos/pitcher1.jpg" alt=""> -->
-        </div>
-        <div class="pitch-member-info">
-          <p class="pitch-member-name"><!-- [名前] --></p>
-          <p class="pitch-member-theme"><!-- [ピッチテーマ] --></p>
-          <p class="pitch-member-desc"><!-- [一言紹介] --></p>
-        </div>
+    <!-- Fighter Pass スタイル — 今回のキャスト -->
+    <div class="pitch-fighter">
+      <div class="pitch-fighter-title">
+        <span class="label">PITCHER × MC</span>
+        <span class="main">今回のキャスト</span>
       </div>
+      <div class="pitch-fighter-cards">
 
-      <div class="pitch-member">
-        <div class="pitch-member-avatar">
-          <!-- <img src="photos/pitcher2.jpg" alt=""> -->
+        <div class="pitch-fighter-card">
+          <div class="pitch-fighter-photo">
+            <span class="pitch-fighter-role">PITCHER</span>
+            <img src="photos/cook8.jpg" alt="木口朝陽">
+          </div>
+          <p class="pitch-fighter-name">木口朝陽</p>
+          <p class="pitch-fighter-theme"><!-- [テーマ] --></p>
         </div>
-        <div class="pitch-member-info">
-          <p class="pitch-member-name"><!-- [名前] --></p>
-          <p class="pitch-member-theme"><!-- [ピッチテーマ] --></p>
-          <p class="pitch-member-desc"><!-- [一言紹介] --></p>
+
+        <div class="pitch-fighter-card">
+          <div class="pitch-fighter-photo">
+            <span class="pitch-fighter-role">PITCHER</span>
+            <img src="photos/host1.png" alt="炎山友秋">
+          </div>
+          <p class="pitch-fighter-name">炎山友秋</p>
+          <p class="pitch-fighter-theme"><!-- [テーマ] --></p>
         </div>
+
+        <div class="pitch-fighter-card">
+          <div class="pitch-fighter-photo">
+            <span class="pitch-fighter-role">MC</span>
+            <img src="photos/cook3.jpg" alt="武田吉平">
+          </div>
+          <p class="pitch-fighter-name">武田吉平</p>
+          <p class="pitch-fighter-theme">司会</p>
+        </div>
+
       </div>
-
-      <div class="pitch-member">
-        <div class="pitch-member-avatar">
-          <!-- <img src="photos/pitcher3.jpg" alt=""> -->
-        </div>
-        <div class="pitch-member-info">
-          <p class="pitch-member-name"><!-- [名前] --></p>
-          <p class="pitch-member-theme"><!-- [ピッチテーマ] --></p>
-          <p class="pitch-member-desc"><!-- [一言紹介] --></p>
-        </div>
-      </div>
-
     </div>
   </section>
 
