@@ -592,34 +592,77 @@
       background: #fff;
     }
 
-    .stats-row {
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .stats-card {
+      background: #08121e;
+      border: 1px solid rgba(245,200,66,0.15);
+      border-radius: 4px;
+      padding: 16px 14px 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stats-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 2px; height: 100%;
+      background: #f5c842;
+      opacity: 0.6;
+    }
+
+    .stats-card-num {
+      font-family: 'Dela Gothic One', serif;
+      font-size: 2rem;
+      color: #f0ece4;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .stats-card-unit {
+      font-size: 0.75rem;
+      color: #f0ece4;
+      margin-left: 2px;
+    }
+
+    .stats-card-label {
+      font-size: 0.66rem;
+      color: rgba(245,200,66,0.7);
+      margin-top: 6px;
+      letter-spacing: 0.06em;
+    }
+
+    .stats-card-date {
+      font-size: 0.72rem;
+      color: #f0ece4;
+      line-height: 1.5;
+      margin-top: 4px;
+    }
+
+    .stats-card.wide {
+      grid-column: span 2;
       display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .stats-card.wide .stats-card-label {
+      margin-top: 0;
+      font-size: 0.68rem;
+    }
+
+    .stats-card.wide .stats-card-date {
       font-size: 0.85rem;
-      border-bottom: 1px solid #eceae6;
+      font-family: 'Dela Gothic One', serif;
+      color: #f0ece4;
     }
-
-    .stats-row:last-child { border-bottom: none; }
-
-    .stats-label {
-      background: #f7f7f4;
-      color: #888;
-      padding: 10px 14px;
-      min-width: 130px;
-      flex-shrink: 0;
-      font-size: 0.79rem;
-      display: flex;
-      align-items: center;
-    }
-
-    .stats-value {
-      padding: 10px 14px;
-      color: #2D2D2D;
-      font-size: 0.88rem;
-      display: flex;
-      align-items: center;
-    }
-
-    .stats-value .placeholder { color: #bbb; font-size: 0.78rem; }
 
     /* ═══════════════════════════════════════════════
        UTSUBO飯
@@ -1696,7 +1739,7 @@
 
   <!-- STICKERS — 住民からの推しポイント ──────────────── -->
   <div class="section-stickers" id="stickers">
-    <p class="section-label" style="text-align:center; padding: 0 24px 0; margin-bottom: 0;">住民からの推しポイント</p>
+    <p class="section-label">住民からの推しポイント</p>
     <div class="stickers-row">
 
       <!-- 内藤 -->
@@ -1771,6 +1814,7 @@
   <section class="section-timeline">
     <p class="section-label">当日の流れ</p>
     <p class="section-desc">7:00 開始 → 23:00 終了</p>
+    <p class="section-desc" style="margin-top:4px;">基本的に自由入退室となっております（ゲームがあるため、到着時間はフォームにて管理）</p>
     <ul class="timeline">
       <li>
         <span class="time">7:00〜10:00</span>
@@ -1806,7 +1850,7 @@
       <div class="pitch-reviews" id="pitchReviews">
         <div class="pitch-review">
           <p class="pitch-review-text">「楽しかったです！案外、自分のビジョンって人に知られていなかったんだなと。もっとビジョンを語るようにします。」</p>
-          <p class="pitch-review-meta"><!-- イニシャル / 活動内容 --></p>
+          <p class="pitch-review-meta">N.H</p>
         </div>
         <div class="pitch-review">
           <p class="pitch-review-text">「プレゼン力を上げたいと思った。大衆とのコミュニケーションの難しさを感じた。でも、プレゼン後に話しかけてくださる方がいたり、人の思いに刺さってる言葉があったりしたので、プレゼンさせていただけてよかった。」</p>
@@ -1869,31 +1913,36 @@
   </section>
 
 
-  <!-- TRACK RECORD ────────────────────────────────── -->
+  <!-- UTSUBO DATA ────────────────────────────────── -->
   <section class="section-track">
-    <p class="section-label">続いてきた記録</p>
-    <p class="section-desc">開催実績・参加データ</p>
-    <p>2021年から始まって、名前と場所を変えながらも途切れずに続いている。特別な告知をしているわけでもなく、毎回フォームが埋まって、同じくらいの人数が集まり続けている。</p>
-    <div class="stats">
-      <div class="stats-row">
-        <span class="stats-label">開催期間</span>
-        <span class="stats-value">2021年〜2023年、2025年〜現在</span>
+    <p class="section-label">うつぼデータ</p>
+    <div class="stats-grid" id="statsGrid">
+      <div class="stats-card">
+        <div><span class="stats-card-num" data-target="46">0</span><span class="stats-card-unit">名</span></div>
+        <div class="stats-card-label">住民数</div>
       </div>
-      <div class="stats-row">
-        <span class="stats-label">通算開催回数</span>
-        <span class="stats-value"><span class="placeholder">○○回（確定後に更新）</span></span>
+      <div class="stats-card">
+        <div><span class="stats-card-num" data-target="8">0</span><span class="stats-card-unit">社</span></div>
+        <div class="stats-card-label">法人登記</div>
       </div>
-      <div class="stats-row">
-        <span class="stats-label">平均参加者数</span>
-        <span class="stats-value">22〜25名／回</span>
+      <div class="stats-card">
+        <div><span class="stats-card-num" data-target="200">0</span><span class="stats-card-unit">名</span></div>
+        <div class="stats-card-label">感謝祭参加者</div>
       </div>
-      <div class="stats-row">
-        <span class="stats-label">フォーム申込</span>
-        <span class="stats-value">毎回30名前後</span>
+      <div class="stats-card">
+        <div><span class="stats-card-num" data-target="600">0</span><span class="stats-card-unit">名</span></div>
+        <div class="stats-card-label">シェアハウス来訪者</div>
       </div>
-      <div class="stats-row">
-        <span class="stats-label">参加費</span>
-        <span class="stats-value">無料（飯・シーシャ含む）</span>
+      <div class="stats-card wide">
+        <div>
+          <div class="stats-card-label">START</div>
+          <div class="stats-card-date">2018 / 09 / 01</div>
+        </div>
+        <div style="font-size:1.6rem; color:rgba(245,200,66,0.3);">—</div>
+        <div>
+          <div class="stats-card-label">END</div>
+          <div class="stats-card-date">♾️</div>
+        </div>
       </div>
     </div>
   </section>
@@ -2269,6 +2318,34 @@
   </footer>
 
   <script>
+    /* ── うつぼデータ カウントアップ ── */
+    (function () {
+      var grid = document.getElementById('statsGrid');
+      if (!grid) return;
+      var triggered = false;
+      var obs = new IntersectionObserver(function (entries) {
+        if (triggered || !entries[0].isIntersecting) return;
+        triggered = true;
+        obs.disconnect();
+        var nums = grid.querySelectorAll('.stats-card-num[data-target]');
+        nums.forEach(function (el) {
+          var target = parseInt(el.getAttribute('data-target'), 10);
+          var duration = 1400;
+          var start = null;
+          function step(ts) {
+            if (!start) start = ts;
+            var progress = Math.min((ts - start) / duration, 1);
+            var ease = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.floor(ease * target);
+            if (progress < 1) requestAnimationFrame(step);
+            else el.textContent = target;
+          }
+          requestAnimationFrame(step);
+        });
+      }, { threshold: 0.3 });
+      obs.observe(grid);
+    })();
+
     /* ── ポラロイドカード 着地アニメーション ── */
     (function () {
       var cards = document.querySelectorAll('.host-card');
