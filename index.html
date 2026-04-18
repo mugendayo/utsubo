@@ -1293,6 +1293,21 @@
       position: relative;
       z-index: 1;
     }
+    .pitch-month-badge {
+      position: absolute;
+      top: 10px;
+      left: 14px;
+      font-family: 'Dela Gothic One', 'Noto Sans JP', sans-serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: #f5c842;
+      letter-spacing: 0.05em;
+      text-shadow:
+        2px 2px 0 rgba(139,90,43,0.8),
+        3px 3px 0 rgba(60,30,5,0.4);
+      filter: url(#grunge);
+      line-height: 1;
+    }
 
     .pitch-fighter-title .main {
       display: block;
@@ -1741,6 +1756,7 @@
     <!-- Fighter Pass スタイル — 今回のキャスト -->
     <div class="pitch-fighter">
       <div class="pitch-fighter-title">
+        <span class="pitch-month-badge">4月</span>
         <span class="main">住民ピッチ</span>
       </div>
       <div class="pitch-fighter-divider"></div>
