@@ -1196,6 +1196,10 @@
       position: relative;
       margin-top: 14px;
       margin-bottom: 8px;
+      background: linear-gradient(160deg, #08121e 0%, #0c1c30 60%, #152a42 100%);
+      border-radius: 4px;
+      overflow: hidden;
+      padding: 4px 0 10px;
     }
 
     .pitch-reviews {
@@ -1212,22 +1216,36 @@
       min-width: 100%;
       box-sizing: border-box;
       scroll-snap-align: start;
-      background: #f8f6f2;
-      border-left: 2px solid #E8734A;
-      padding: 10px 14px;
-      font-size: 0.78rem;
-      color: #3a3a3a;
-      line-height: 1.7;
+      background: transparent;
+      border-left: 2px solid #f5c842;
+      padding: 14px 16px 10px;
+      font-size: 0.8rem;
+      color: #e8e0d0;
+      line-height: 1.8;
     }
 
     .pitch-review-text {
-      margin: 0 0 6px;
+      margin: 0 0 8px;
+      position: relative;
+    }
+
+    .pitch-review-text::before {
+      content: '"';
+      font-family: 'Dela Gothic One', serif;
+      font-size: 2.4rem;
+      color: rgba(245,200,66,0.18);
+      position: absolute;
+      top: -8px;
+      left: -4px;
+      line-height: 1;
+      pointer-events: none;
     }
 
     .pitch-review-meta {
       font-size: 0.65rem;
-      color: #aaa;
+      color: #f5c842;
       margin: 0;
+      letter-spacing: 0.05em;
     }
 
     /* スワイプドット */
@@ -1235,25 +1253,25 @@
       display: flex;
       justify-content: center;
       gap: 5px;
-      margin-top: 7px;
+      margin-top: 8px;
     }
 
     .pitch-dot {
       width: 5px; height: 5px;
       border-radius: 50%;
-      background: #ddd;
+      background: rgba(255,255,255,0.2);
       cursor: pointer;
       border: none;
       padding: 0;
     }
 
-    .pitch-dot.active { background: #E8734A; }
+    .pitch-dot.active { background: #f5c842; }
 
     .pitch-hint {
       text-align: right;
       font-size: 0.62rem;
-      color: #bbb;
-      margin: 3px 0 0;
+      color: rgba(255,255,255,0.3);
+      margin: 4px 14px 0;
     }
 
     .pitch-note {
@@ -1723,7 +1741,7 @@
     <p class="section-desc">感謝祭でしゃべりたい人向けにピッチの機会を用意しています</p>
 
     <!-- 過去ピッチ口コミ — 横スワイプカルーセル -->
-    <p class="section-label" style="font-size:0.72rem; margin-bottom:6px; margin-top:16px;">過去のピッチ希望者の生の声</p>
+    <p class="section-label" style="font-size:0.72rem; margin-bottom:6px; margin-top:16px; color:#f5c842; letter-spacing:0.12em;">過去のピッチ希望者の生の声</p>
     <div class="pitch-reviews-wrap">
       <div class="pitch-reviews" id="pitchReviews">
         <div class="pitch-review">
