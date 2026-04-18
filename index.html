@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <title>うつぼ感謝祭</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Dela+Gothic+One&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -1244,40 +1244,41 @@
       pointer-events: none;
     }
 
-    /* 左タイトル：挑戦者現る風 */
+    /* 左タイトル：住民ピッチ グランジ風 */
     .pitch-fighter-title {
       flex-shrink: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 12px 10px 12px 14px;
+      padding: 12px 6px 12px 12px;
       position: relative;
       z-index: 1;
-      width: 72px;
+      width: 68px;
     }
 
     .pitch-fighter-title .main {
       display: block;
-      font-size: 1.05rem;
-      font-weight: 900;
+      font-family: 'Dela Gothic One', 'Noto Sans JP', sans-serif;
+      font-size: 1.15rem;
       font-style: italic;
-      color: #f5c842;
-      line-height: 1.15;
-      letter-spacing: 0.04em;
-      text-shadow:
-        -1px -1px 0 #000, 1px -1px 0 #000,
-        -1px  1px 0 #000, 1px  1px 0 #000,
-        0 0 16px rgba(245,200,66,0.7),
-        0 0 32px rgba(245,200,66,0.3);
+      color: #f0f0f0;
+      line-height: 1.1;
+      letter-spacing: 0.06em;
       writing-mode: vertical-rl;
       text-orientation: mixed;
+      text-shadow:
+        2px 2px 0 rgba(139,90,43,0.8),
+        3px 3px 0 rgba(80,40,10,0.5),
+        -1px -1px 0 rgba(255,255,255,0.15),
+        0 0 20px rgba(255,255,255,0.08);
+      filter: url(#grunge);
     }
 
-    /* 斜め区切り線（タイトルと写真の境界） */
+    /* 斜め区切り線 */
     .pitch-fighter-divider {
-      width: 24px;
+      width: 20px;
       flex-shrink: 0;
-      background: linear-gradient(to bottom right, #08121e 49%, #f5c842 50%, #f5c842 51%, #08121e 52%);
+      background: linear-gradient(to bottom right, #08121e 49%, rgba(245,200,66,0.5) 50%, rgba(245,200,66,0.5) 51%, #08121e 52%);
       position: relative;
       z-index: 1;
     }
@@ -1286,56 +1287,57 @@
       display: flex;
       flex: 1;
       position: relative;
+      gap: 0;
     }
 
     .pitch-fighter-card {
       flex: 1;
       position: relative;
-      overflow: hidden;
     }
 
-    /* 斜め切り込みは clip-path で実現 */
-    .pitch-fighter-card:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      top: 0; right: -1px; bottom: 0;
-      width: 20px;
-      background: linear-gradient(to bottom right, transparent 49%, #08121e 50%);
-      z-index: 3;
-      pointer-events: none;
-    }
-
+    /* 斜め切り込み：各写真を平行四辺形にclip */
     .pitch-fighter-photo {
       width: 100%;
       aspect-ratio: 3 / 4;
       position: relative;
       background: #0a1628;
+      overflow: hidden;
+      clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+    }
+
+    .pitch-fighter-card:first-child .pitch-fighter-photo {
+      clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 0% 100%);
+    }
+
+    .pitch-fighter-card:last-child .pitch-fighter-photo {
+      clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
 
     .pitch-fighter-photo img {
-      width: 100%;
+      width: 112%;
       height: 100%;
+      margin-left: -6%;
       object-fit: cover;
       object-position: center top;
-      filter: contrast(1.08) saturate(0.88) brightness(0.88);
+      filter: contrast(1.1) saturate(0.85) brightness(0.85);
       display: block;
     }
 
-    /* 下グラデ（名前用） */
+    /* 下グラデ（テキスト用） */
     .pitch-fighter-photo::before {
       content: '';
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      height: 45%;
-      background: linear-gradient(to top, rgba(8,18,30,0.92), transparent);
+      height: 38%;
+      background: linear-gradient(to top, rgba(8,18,30,0.95) 0%, rgba(8,18,30,0.6) 60%, transparent 100%);
       z-index: 1;
     }
 
     .pitch-fighter-name {
       position: absolute;
-      bottom: 18px;
+      bottom: 14px;
       left: 0; right: 0;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 700;
       color: #fff;
       text-align: center;
@@ -1346,13 +1348,13 @@
 
     .pitch-fighter-role {
       position: absolute;
-      bottom: 6px;
+      bottom: 4px;
       left: 0; right: 0;
-      font-size: 0.55rem;
+      font-size: 0.52rem;
       font-weight: 900;
       color: #f5c842;
       text-align: center;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       z-index: 2;
     }
 
@@ -1497,6 +1499,14 @@
   </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute;overflow:hidden">
+  <defs>
+    <filter id="grunge" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="4" seed="5" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
 
   <!-- HERO ────────────────────────────────────────── -->
   <header class="hero">
