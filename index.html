@@ -1329,12 +1329,29 @@
       line-height: 2.0;
     }
 
+    .tournament-closing-wrap {
+      background: linear-gradient(135deg, #08121e 0%, #152a42 100%);
+      border-radius: 6px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
     .tournament-closing {
       font-family: 'Dela Gothic One', 'Noto Sans JP', sans-serif;
-      font-size: 1.0rem;
-      color: #555;
+      font-size: clamp(0.85rem, 4.2vw, 1.15rem);
+      color: #f5c842;
       font-style: italic;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
+      text-shadow:
+        2px 2px 0 rgba(139,90,43,0.7),
+        4px 4px 0 rgba(30,10,0,0.4);
+      filter: url(#grunge);
+      white-space: nowrap;
+      margin: 0;
+      line-height: 1;
     }
 
     .section-who {
@@ -2445,7 +2462,7 @@
     <p class="section-label">神殿右上チャンピオンシップ</p>
     <img class="tournament-img" src="photos/tournament.jpg" alt="神殿右上チャンピオンシップ Tournament2026">
     <p class="tournament-tagline">感謝祭中、常に開催しています。</p>
-    <p class="tournament-title">最も「右上」がうまいやつ、集まれ。</p>
+    <p class="tournament-title">最も 「右上」 が<br>うまいやつ、集まれ。</p>
     <div class="tournament-rules">
       <p class="tournament-rules-title">RULES</p>
       <ul>
@@ -2456,7 +2473,9 @@
         <li>優勝したら1カウント、2位以下はマイナス1カウント</li>
       </ul>
     </div>
-    <p class="tournament-closing">俺より右上なヤツに会いに行く</p>
+    <div class="tournament-closing-wrap">
+      <p class="tournament-closing">俺より右上なヤツに会いに行く</p>
+    </div>
   </section>
 
   <section class="section-who">
