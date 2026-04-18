@@ -1275,6 +1275,68 @@
     /* ═══════════════════════════════════════════════
        WHO + お断り
     ═══════════════════════════════════════════════ */
+    /* トーナメントセクション */
+    .section-tournament {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 44px 24px 40px;
+      border-bottom: 1px solid #e0e0da;
+    }
+
+    .tournament-img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+      margin-bottom: 18px;
+    }
+
+    .tournament-tagline {
+      font-size: 0.75rem;
+      color: #aaa;
+      margin-bottom: 6px;
+    }
+
+    .tournament-title {
+      font-family: 'Dela Gothic One', 'Noto Sans JP', sans-serif;
+      font-size: 1.3rem;
+      color: #1a1a1a;
+      line-height: 1.4;
+      margin-bottom: 18px;
+      letter-spacing: 0.02em;
+    }
+
+    .tournament-rules {
+      background: #f8f6f2;
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+    }
+
+    .tournament-rules-title {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #E8734A;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .tournament-rules ul {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 0.8rem;
+      color: #3a3a3a;
+      line-height: 2.0;
+    }
+
+    .tournament-closing {
+      font-family: 'Dela Gothic One', 'Noto Sans JP', sans-serif;
+      font-size: 1.0rem;
+      color: #555;
+      font-style: italic;
+      letter-spacing: 0.04em;
+    }
+
     .section-who {
       max-width: 640px;
       margin: 0 auto;
@@ -1954,11 +2016,11 @@
       </li>
       <li>
         <span class="time">10:30〜15:00</span>
-        <span class="desc">マーダーミステリー 第1回</span>
+        <span class="desc">マーダーミステリー 第1回<span class="desc-note">／ 桃鉄3年</span></span>
       </li>
       <li>
         <span class="time">15:00〜18:00</span>
-        <span class="desc">マーダーミステリー 第2回</span>
+        <span class="desc">マーダーミステリー 第2回<span class="desc-note">／ 桃鉄3年</span></span>
       </li>
       <li>
         <span class="time">18:00〜23:00</span>
@@ -2362,6 +2424,25 @@
   </section>
 
   <!-- WHO + お断り ─────────────────────────────────── -->
+  <!-- TOURNAMENT ──────────────────────────────────── -->
+  <section class="section-tournament">
+    <p class="section-label">神殿右上チャンピオンシップ</p>
+    <img class="tournament-img" src="photos/tournament.jpg" alt="神殿右上チャンピオンシップ Tournament2026">
+    <p class="tournament-tagline">感謝祭中、常に開催しています。</p>
+    <p class="tournament-title">最も「右上」がうまいやつ、集まれ。</p>
+    <div class="tournament-rules">
+      <p class="tournament-rules-title">RULES</p>
+      <ul>
+        <li>右上以外での攻撃禁止（飛び道具も含む）</li>
+        <li>スマッシュボールを追加</li>
+        <li>切り札かプレイヤー指定技のみ撃墜に有効</li>
+        <li>4人集まったら対戦</li>
+        <li>優勝したら1カウント、2位以下はマイナス1カウント</li>
+      </ul>
+    </div>
+    <p class="tournament-closing">俺より右上なヤツに会いに行く</p>
+  </section>
+
   <section class="section-who">
     <p class="section-label">住民が興味のある人</p>
     <div class="who-list">
