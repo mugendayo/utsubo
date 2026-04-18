@@ -1113,6 +1113,55 @@
       line-height: 1.75;
     }
 
+    .host-career {
+      margin-top: 12px;
+      border-top: 1px solid #e0e0da;
+      padding-top: 10px;
+    }
+
+    .host-career summary {
+      font-size: 0.75rem;
+      color: #c8601a;
+      font-weight: 700;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      user-select: none;
+    }
+
+    .host-career summary::-webkit-details-marker { display: none; }
+
+    .host-career summary::after {
+      content: '▼';
+      font-size: 0.6rem;
+      transition: transform 0.2s;
+    }
+
+    .host-career[open] summary::after {
+      transform: rotate(-180deg);
+    }
+
+    .host-career-body {
+      margin-top: 10px;
+      font-size: 0.75rem;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    .host-career-body h4 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #333;
+      margin: 10px 0 4px;
+      letter-spacing: 0.04em;
+    }
+
+    .host-career-body p {
+      margin: 0 0 6px;
+    }
+
     /* ═══════════════════════════════════════════════
        WHO + お断り
     ═══════════════════════════════════════════════ */
@@ -1513,7 +1562,7 @@
         </div>
         <div class="food-body">
           <div class="food-avatar"><img src="photos/cook2.jpg" alt="住民" style="object-position: center top;"></div>
-          <p class="food-dish">十割10.0ランチ</p>
+          <p class="food-dish">十割10.0蕎麦</p>
           <p class="food-cook">炎山友秋</p>
           <div class="food-bubble">10割+α=♾️</div>
         </div>
@@ -1541,9 +1590,9 @@
         </div>
         <div class="food-body">
           <div class="food-avatar"><img src="photos/cook4.jpg" alt="住民" style="object-position: center top;"></div>
-          <p class="food-dish"><!-- [料理名] --></p>
+          <p class="food-dish">ドーナツ</p>
           <p class="food-cook">内藤涼太</p>
-          <div class="food-bubble"><!-- [ひとこと] --></div>
+          <div class="food-bubble">Let's donut battle</div>
         </div>
       </div>
 
@@ -1555,9 +1604,9 @@
         </div>
         <div class="food-body">
           <div class="food-avatar"><img src="photos/cook5.jpg" alt="住民" style="object-position: center top;"></div>
-          <p class="food-dish"><!-- [料理名] --></p>
+          <p class="food-dish">思い入れのチーズケーキ</p>
           <p class="food-cook">村上元基</p>
-          <div class="food-bubble"><!-- [ひとこと] --></div>
+          <div class="food-bubble">死ぬまでに最高の一品を。</div>
         </div>
       </div>
 
@@ -1583,9 +1632,9 @@
         </div>
         <div class="food-body">
           <div class="food-avatar"><img src="photos/cook7.jpg" alt="住民" style="object-position: center top;"></div>
-          <p class="food-dish"><!-- [料理名] --></p>
+          <p class="food-dish">ベルトコンベア</p>
           <p class="food-cook">佐藤宥太</p>
-          <div class="food-bubble"><!-- [ひとこと] --></div>
+          <div class="food-bubble">愛のエネルギーでこの宇宙を回転させます。</div>
         </div>
       </div>
 
@@ -1597,9 +1646,9 @@
         </div>
         <div class="food-body">
           <div class="food-avatar"><img src="photos/cook8.jpg" alt="住民" style="object-position: center top;"></div>
-          <p class="food-dish"><!-- [料理名] --></p>
+          <p class="food-dish">バカパスタ</p>
           <p class="food-cook">木口朝陽</p>
-          <div class="food-bubble"><!-- [ひとこと] --></div>
+          <div class="food-bubble">過去シェアハウスで毎日食べていた安心のバカ味</div>
         </div>
       </div>
 
@@ -1613,7 +1662,7 @@
           <div class="food-avatar"><img src="photos/cook9.jpg" alt="住民" style="object-position: center top;"></div>
           <p class="food-dish">バカチキン</p>
           <p class="food-cook">本多令旺</p>
-          <div class="food-bubble">味付けは濃ければ濃いほど良い</div>
+          <div class="food-bubble">最低だけど最高な料理</div>
         </div>
       </div>
 
@@ -1625,9 +1674,9 @@
         </div>
         <div class="food-body">
           <div class="food-avatar"><img src="photos/cook10.jpg" alt="住民" style="object-position: center top;"></div>
-          <p class="food-dish"><!-- [料理名] --></p>
+          <p class="food-dish">鶏大根</p>
           <p class="food-cook">柊渚</p>
-          <div class="food-bubble"><!-- [ひとこと] --></div>
+          <div class="food-bubble">下茹でが本質。心まで染みさせる。</div>
         </div>
       </div>
 
@@ -1639,9 +1688,9 @@
         </div>
         <div class="food-body">
           <div class="food-avatar"><img src="photos/cook11.jpg" alt="住民" style="object-position: center top;"></div>
-          <p class="food-dish"><!-- [料理名] --></p>
+          <p class="food-dish">チャイ</p>
           <p class="food-cook">井上絵理</p>
-          <div class="food-bubble"><!-- [ひとこと] --></div>
+          <div class="food-bubble">思ったよりも1.5倍スパイス入れちゃうぞ⭐</div>
         </div>
       </div>
 
@@ -1667,9 +1716,9 @@
         </div>
         <div class="food-body">
           <div class="food-avatar"><img src="photos/cook13.jpg" alt="住民" style="object-position: center top;"></div>
-          <p class="food-dish"><!-- [料理名] --></p>
-          <p class="food-cook"><!-- [住民名] --></p>
-          <div class="food-bubble"><!-- [ひとこと] --></div>
+          <p class="food-dish">広島風お好み焼き</p>
+          <p class="food-cook">塚根啓生</p>
+          <div class="food-bubble">みんな混ぜ混ぜ　なになに風？感謝祭に感謝！</div>
         </div>
       </div>
 
@@ -1683,36 +1732,53 @@
   <section class="section-hosts">
     <p class="section-label">主催している人たち</p>
     <p class="section-desc">うつぼハウス立ち上げメンバー2人</p>
-    <p class="hosts-intro">なんでやってるかを聞いたら、たぶん2人で答えが違う。</p>
 
     <div class="host-cards">
 
       <div class="host-card" style="--tilt: -2.5deg;">
         <div class="host-photo-sm">
-          <img src="photos/host1.jpg" alt="○○さん">
+          <img src="photos/host1.jpg" alt="炎山友秋">
         </div>
         <div class="host-body">
-          <p class="host-name"><!-- [BLOCK: 名前] -->○○ ○○</p>
-          <!-- オレンジラベル下の特徴。飾りなしプレーンテキスト -->
-          <p class="host-traits"><!-- [BLOCK: 特徴] 例: 27歳 / 起業家 / シーシャとサウナ好き --></p>
+          <p class="host-name">炎山友秋</p>
+          <p class="host-traits"><!-- [経歴追加予定] --></p>
           <p class="host-text">
-            <!-- [BLOCK: 本人の言葉で。砕けた口調で] -->
-            ここに飯作って食べてたら、なぜか毎月30人くる場所になってた。なんでこうなったのかは自分でもよくわからんけど、来てくれる人が楽しそうだから続いてる。
+            自分だったら、このイベントに行かないなと思います。<br>
+            目的なく行動するのが嫌いだからです。<br>
+            20歳の自分は価値観を広げるために、ビジネスプランコンテストに出たり、知らないアスファルトで起床したり、ゆるいつながりを鵜呑みにしてました。<br>
+            そのせいで、10年続く仲間がたくさんいて、後悔しています。<br>
+            ただ群れるだけのイベントでは、かけがえのない仲間しか出来ませんでした。<br>
+            その瞬間は気付けないので、家でゲームしてたほうが良かったです。
           </p>
         </div>
       </div>
 
       <div class="host-card" style="--tilt: 2deg;">
         <div class="host-photo-sm">
-          <img src="photos/host2.JPG" alt="○○さん">
+          <img src="photos/host2.JPG" alt="辻尚也">
         </div>
         <div class="host-body">
-          <p class="host-name"><!-- [BLOCK: 名前] -->○○ ○○</p>
-          <p class="host-traits"><!-- [BLOCK: 特徴] 例: 25歳 / ○○事業 / コーヒーと読書 --></p>
+          <p class="host-name">辻尚也</p>
+          <p class="host-traits"></p>
           <p class="host-text">
-            <!-- [BLOCK: 本人の言葉で] -->
-            事業をちゃんとやってる人の話が一番おもしろいと思っていて、そういう人が集まる場所を続けたかった。自分が参加したいと思えるイベントにするようにしてる。
+            人生を変えるのは機会だと考えています。<br>
+            自分も過去様々な機会があったからこそ今の自分があります。<br>
+            その感謝の意味も込めて、住民の周りにいるすべての人に感謝の気持ちを込めて、場を提供します。<br>
+            これまでの関西の挑戦者がどんな成功、失敗をしたかの知見をもとにコミュニケーションが取れます。<br>
+            住民が纏う挑戦者の哲学に触れることができます。<br>
+            関西に限らず、日本、世界の観点で必要な人にアクセスできるルートを提案できると思います。
           </p>
+          <details class="host-career">
+            <summary>経歴を見る</summary>
+            <div class="host-career-body">
+              <h4>活動軸</h4>
+              <p>「良い組織が人生を良くする」を信念に、組織構造に起因する課題解決を目的とする。インパクトと難易度の高い領域において、人の特性を最大化する行動指針を持つ。</p>
+              <h4>実績・経験</h4>
+              <p>小中大の各野球部で主将を務め、大学軟式野球日本代表候補に選出。22歳時には、メルカリBOLDやワークスアプリケーションズ（優秀賞）等のインターン、学生最大級ビジコンTRIGGERファイナリスト、神戸市シリコンバレー研修、MAKERS UNIVERSITY 3期などに選抜・合格。また、100名規模の就活イベント企画や複数のビジコン優勝を経験。</p>
+              <h4>現在</h4>
+              <p>株式会社パトスロゴスにてエンジニアとして勤務。大手企業向けHR SaaSの開発を通じ、日本の大組織における変革の仮説検証に従事。</p>
+            </div>
+          </details>
         </div>
       </div>
 
