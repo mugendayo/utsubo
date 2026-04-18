@@ -362,7 +362,38 @@
       letter-spacing: 0.04em;
     }
 
-    .section-about--second { padding-top: 28px; }
+    .section-about--second {
+      background: #fff;
+      border-radius: 24px;
+      border-bottom: none;
+      padding: 28px 24px 28px;
+      margin: 28px 16px 36px;
+      max-width: calc(640px - 32px);
+      position: relative;
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.07));
+    }
+
+    .section-about--second::before {
+      content: '';
+      position: absolute;
+      top: -24px;
+      left: 32px;
+      width: 54px;
+      height: 54px;
+      background: #fff;
+      border-radius: 50%;
+    }
+
+    .section-about--second::after {
+      content: '';
+      position: absolute;
+      top: -38px;
+      left: 72px;
+      width: 72px;
+      height: 72px;
+      background: #fff;
+      border-radius: 50%;
+    }
 
     /* ═══════════════════════════════════════════════
        PHOTO STRIP
