@@ -1796,6 +1796,205 @@
     .cta-note { margin-top: 14px; font-size: 0.8rem; color: #bbb; }
 
     /* ═══════════════════════════════════════════════
+       同意モーダル
+    ═══════════════════════════════════════════════ */
+    .consent-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 8, 10, 0.78);
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      z-index: 9999;
+      padding: 24px 16px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .consent-overlay.is-open {
+      display: flex;
+    }
+
+    .consent-modal {
+      background: #fdfcf7;
+      color: #2a2a2a;
+      max-width: 520px;
+      width: 100%;
+      border-radius: 6px;
+      padding: 28px 24px 26px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      position: relative;
+      margin: auto 0;
+    }
+
+    .consent-close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      line-height: 1;
+      color: #888;
+      cursor: pointer;
+      padding: 6px 10px;
+    }
+
+    .consent-close:hover { color: #333; }
+
+    .consent-title {
+      font-family: 'Dela Gothic One', 'Noto Sans JP', serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+      color: #1a1a1a;
+    }
+
+    .consent-lead {
+      font-size: 0.82rem;
+      line-height: 1.75;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .consent-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .consent-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 14px;
+      background: #f4f1e8;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .consent-item:hover { background: #ede9dc; }
+
+    .consent-item.is-photo {
+      background: #fbf3ea;
+      border-left: 3px solid #E8734A;
+    }
+
+    .consent-item.is-photo:hover { background: #f6ead9; }
+
+    .consent-item input[type="checkbox"] {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      accent-color: #E8734A;
+      cursor: pointer;
+    }
+
+    .consent-item-text {
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .consent-item-text strong {
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    .consent-submit {
+      display: block;
+      width: 100%;
+      background: #E8734A;
+      color: #fff;
+      border: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 15px 20px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: opacity 0.2s, background 0.15s;
+      font-family: inherit;
+    }
+
+    .consent-submit:disabled {
+      background: #c5c1b6;
+      cursor: not-allowed;
+      opacity: 0.8;
+    }
+
+    .consent-submit:not(:disabled):active { background: #d4623b; }
+
+    .consent-foot {
+      margin-top: 10px;
+      font-size: 0.7rem;
+      color: #888;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    body.consent-locked { overflow: hidden; }
+
+    /* ═══════════════════════════════════════════════
+       フォーム埋め込み
+    ═══════════════════════════════════════════════ */
+    .section-form {
+      display: none;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 36px 16px 48px;
+      border-bottom: 1px solid #e0e0da;
+    }
+
+    .section-form.is-active { display: block; }
+
+    .form-intro {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .form-intro-label {
+      font-size: 0.68rem;
+      color: #E8734A;
+      letter-spacing: 0.14em;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .form-intro-title {
+      font-family: 'Dela Gothic One', 'Noto Sans JP', serif;
+      font-size: 1.1rem;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+      letter-spacing: 0.03em;
+    }
+
+    .form-intro-note {
+      font-size: 0.78rem;
+      color: #777;
+      line-height: 1.75;
+    }
+
+    .form-frame-wrap {
+      background: #fff;
+      border: 1px solid #e0e0da;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .form-frame-wrap iframe {
+      display: block;
+      width: 100%;
+      min-height: 1800px;
+      border: 0;
+    }
+
+    /* ═══════════════════════════════════════════════
        注意事項 — 利用規約スタイルのスクロールボックス
     ═══════════════════════════════════════════════ */
     .section-terms {
@@ -1901,7 +2100,7 @@
         <div>日時：<span class="placeholder">2026年4月19日（日）7:00〜23:00</span></div>
         <div>会場：大阪市内</div>
       </div>
-      <a class="hero-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfIwhWr0VK_RW9XiO2q-cnVahm4sMaQPExPUjfvTR05yq40gg/viewform" target="_blank" rel="noopener">参加申し込みはこちら</a>
+      <a class="hero-btn" href="#applyForm" data-open-consent role="button">参加申し込みはこちら</a>
       <div class="hero-scroll-hint" aria-hidden="true">
         <div class="scroll-arrow"></div>
       </div>
@@ -2506,10 +2705,65 @@
 
   <!-- CTA ─────────────────────────────────────────── -->
   <section class="section-cta">
-    <!-- [BLOCK: Googleフォームリンク] 確定後にhref="#"を差し替え -->
-    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfIwhWr0VK_RW9XiO2q-cnVahm4sMaQPExPUjfvTR05yq40gg/viewform" target="_blank" rel="noopener">参加申し込みはこちら</a>
+    <a class="btn" href="#applyForm" data-open-consent role="button">参加申し込みはこちら</a>
     <p class="cta-note">定員になり次第フォームを閉じます</p>
   </section>
+
+  <!-- 申し込みフォーム埋め込み（同意後に表示） ─────────── -->
+  <section class="section-form" id="applyForm" aria-hidden="true">
+    <div class="form-intro">
+      <p class="form-intro-label">APPLICATION</p>
+      <h2 class="form-intro-title">申し込みフォーム</h2>
+      <p class="form-intro-note">お時間取らせてしまいすみません。<br>以下のフォームから申し込みをお願いします。</p>
+    </div>
+    <div class="form-frame-wrap">
+      <iframe
+        id="applyFormIframe"
+        title="うつぼ感謝祭 申し込みフォーム"
+        src="about:blank"
+        data-src="https://docs.google.com/forms/d/e/1FAIpQLSfIwhWr0VK_RW9XiO2q-cnVahm4sMaQPExPUjfvTR05yq40gg/viewform?embedded=true"
+        loading="lazy">読み込み中…</iframe>
+    </div>
+  </section>
+
+  <!-- 同意モーダル ─────────────────────────────────── -->
+  <div class="consent-overlay" id="consentOverlay" aria-hidden="true" role="dialog" aria-labelledby="consentTitle" aria-modal="true">
+    <div class="consent-modal">
+      <button type="button" class="consent-close" id="consentClose" aria-label="閉じる">×</button>
+      <h3 class="consent-title" id="consentTitle">申し込みの前に、4つのお願い</h3>
+      <p class="consent-lead">このイベントは2018年から続く小さなコミュニティの集まりです。雰囲気を守るために、申し込みの前に確認していただいています。</p>
+
+      <ul class="consent-list">
+        <li>
+          <label class="consent-item is-photo">
+            <input type="checkbox" class="consent-check" data-key="photo">
+            <span class="consent-item-text"><strong>写真・SNSについて</strong><br>会場での写真・動画撮影は主催者の許可があるときだけにします。SNS（ストーリーズ含む）への投稿は原則しません。</span>
+          </label>
+        </li>
+        <li>
+          <label class="consent-item">
+            <input type="checkbox" class="consent-check" data-key="solicit">
+            <span class="consent-item-text">営業・勧誘・宗教やビジネスへの誘いを目的とした参加はしません。他の参加者の連絡先を本人の同意なく集めることもしません。</span>
+          </label>
+        </li>
+        <li>
+          <label class="consent-item">
+            <input type="checkbox" class="consent-check" data-key="purpose">
+            <span class="consent-item-text">「暇だから」「飯が無料だから」ではなく、人との対話や感謝を伝える気持ちで参加します。</span>
+          </label>
+        </li>
+        <li>
+          <label class="consent-item">
+            <input type="checkbox" class="consent-check" data-key="cancel">
+            <span class="consent-item-text">やむを得ずキャンセルする場合は、前日までに連絡します。</span>
+          </label>
+        </li>
+      </ul>
+
+      <button type="button" class="consent-submit" id="consentSubmit" disabled>すべて確認しました ／ 申し込みフォームへ</button>
+      <p class="consent-foot">同意していただいた方のみフォームへお進みいただけます</p>
+    </div>
+  </div>
 
   <!-- 注意事項 ─────────────────────────────────────────
        利用規約スタイル。スクロールで全文が読める小さいテキストボックス。
@@ -2636,6 +2890,78 @@
       el.addEventListener('scroll', function() {
         var idx = Math.round(el.scrollLeft / el.offsetWidth);
         dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
+      });
+    })();
+
+    /* ── 同意モーダル → フォーム埋め込み表示 ── */
+    (function() {
+      var overlay = document.getElementById('consentOverlay');
+      var closeBtn = document.getElementById('consentClose');
+      var submitBtn = document.getElementById('consentSubmit');
+      var checks = document.querySelectorAll('.consent-check');
+      var formSection = document.getElementById('applyForm');
+      var iframe = document.getElementById('applyFormIframe');
+      var triggers = document.querySelectorAll('[data-open-consent]');
+      if (!overlay || !submitBtn || !formSection || !iframe) return;
+
+      function updateSubmit() {
+        var allChecked = true;
+        checks.forEach(function(c) { if (!c.checked) allChecked = false; });
+        submitBtn.disabled = !allChecked;
+      }
+
+      function openModal() {
+        checks.forEach(function(c) { c.checked = false; });
+        updateSubmit();
+        overlay.classList.add('is-open');
+        overlay.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('consent-locked');
+      }
+
+      function closeModal() {
+        overlay.classList.remove('is-open');
+        overlay.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('consent-locked');
+      }
+
+      function revealForm() {
+        if (iframe.src === 'about:blank' || !iframe.src) {
+          iframe.src = iframe.getAttribute('data-src');
+        }
+        formSection.classList.add('is-active');
+        formSection.setAttribute('aria-hidden', 'false');
+        closeModal();
+        setTimeout(function() {
+          var rect = formSection.getBoundingClientRect();
+          var target = window.pageYOffset + rect.top - 16;
+          window.scrollTo({ top: target, behavior: 'smooth' });
+        }, 80);
+      }
+
+      triggers.forEach(function(t) {
+        t.addEventListener('click', function(e) {
+          e.preventDefault();
+          openModal();
+        });
+      });
+
+      checks.forEach(function(c) {
+        c.addEventListener('change', updateSubmit);
+      });
+
+      closeBtn.addEventListener('click', closeModal);
+
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) closeModal();
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
+      });
+
+      submitBtn.addEventListener('click', function() {
+        if (submitBtn.disabled) return;
+        revealForm();
       });
     })();
   </script>
