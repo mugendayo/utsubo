@@ -2057,6 +2057,45 @@
       transition-delay: 0.58s;
     }
 
+    /* モバイル: ブース名の改行・バッジ被り対策 */
+    @media (max-width: 480px) {
+      .pitch-fighter--game .pitch-fighter-name {
+        font-size: 0.58rem;
+        letter-spacing: 0;
+        bottom: 13px;
+      }
+
+      .pitch-fighter--game .pitch-fighter-role {
+        font-size: 0.44rem;
+        letter-spacing: 0.12em;
+        bottom: 4px;
+      }
+
+      .game-time-badge {
+        top: -8px;
+        right: 4px;
+        padding: 5px 9px 4px;
+        box-shadow: 2px 2px 0 #1a0a3a, 0 0 10px rgba(255,0,110,0.45);
+      }
+
+      .game-time-time {
+        font-size: 0.5rem;
+        letter-spacing: 0.06em;
+      }
+
+      .game-time-text {
+        font-size: 0.64rem;
+      }
+
+      .pitch-fighter--game .pitch-fighter-title .main {
+        font-size: 2rem;
+      }
+
+      .pitch-fighter--game .pitch-fighter-title {
+        padding-right: 88px;
+      }
+    }
+
     /* お断りブロック */
     .rejection-block {
       margin-top: 24px;
