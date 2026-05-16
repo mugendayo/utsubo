@@ -1903,7 +1903,8 @@
     /* ブース説明 — ゲーム系ネオンバリアント */
     .pitch-fighter--game {
       background: linear-gradient(160deg, #1a0a3a 0%, #2e0e60 50%, #4a1a80 100%);
-      margin-top: 28px;
+      margin-top: 36px;
+      overflow: visible;
     }
 
     .pitch-fighter--game::before {
@@ -1954,6 +1955,93 @@
     .pitch-fighter--game .pitch-fighter-role {
       color: #ff006e;
       text-shadow: 0 0 6px rgba(255,0,110,0.35);
+    }
+
+    /* スプラトゥーン風 タイム告知バッジ */
+    .game-time-badge {
+      position: absolute;
+      top: -14px;
+      right: -6px;
+      z-index: 6;
+      transform: rotate(7deg);
+      background: #ff006e;
+      color: #fff;
+      padding: 8px 14px 7px;
+      border: 2.5px solid #1a0a3a;
+      box-shadow: 3px 3px 0 #1a0a3a, 0 0 14px rgba(255,0,110,0.55);
+      font-family: 'Dela Gothic One', 'Noto Sans JP', sans-serif;
+      line-height: 1.18;
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+
+    .game-time-time {
+      display: block;
+      font-size: 0.62rem;
+      color: #ffea00;
+      letter-spacing: 0.08em;
+      text-shadow: 1px 1px 0 #1a0a3a;
+    }
+
+    .game-time-text {
+      display: block;
+      font-size: 0.78rem;
+      color: #fff;
+      text-shadow: 1px 1px 0 #1a0a3a;
+      margin-top: 1px;
+    }
+
+    /* インクスプラッシュ — IntersectionObserverでis-splattered付与 */
+    .ink-splat {
+      position: absolute;
+      pointer-events: none;
+      z-index: 4;
+      opacity: 0;
+      transform: scale(0.15) rotate(var(--rot, 0deg));
+      transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .ink-splat svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.4));
+    }
+
+    .pitch-fighter--game.is-splattered .ink-splat {
+      opacity: 0.92;
+      transform: scale(1) rotate(var(--rot, 0deg));
+    }
+
+    .ink-splat--tl {
+      top: -28px; left: -22px;
+      width: 120px; height: 120px;
+      --rot: -22deg;
+      transition-delay: 0.05s;
+    }
+    .ink-splat--tr {
+      top: 60px; right: -34px;
+      width: 130px; height: 130px;
+      --rot: 32deg;
+      transition-delay: 0.18s;
+    }
+    .ink-splat--ml {
+      top: 45%; left: -34px;
+      width: 100px; height: 100px;
+      --rot: 50deg;
+      transition-delay: 0.32s;
+    }
+    .ink-splat--br {
+      bottom: -30px; right: -18px;
+      width: 140px; height: 140px;
+      --rot: -18deg;
+      transition-delay: 0.45s;
+    }
+    .ink-splat--bm {
+      bottom: -22px; left: 28%;
+      width: 95px; height: 95px;
+      --rot: 12deg;
+      transition-delay: 0.58s;
     }
 
     /* お断りブロック */
@@ -2939,7 +3027,52 @@
     </div>
 
     <!-- ブース説明 -->
-    <div class="pitch-fighter pitch-fighter--game">
+    <div class="pitch-fighter pitch-fighter--game" id="boothSection">
+      <span class="ink-splat ink-splat--tl" aria-hidden="true">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <path d="M58,8 C75,5 92,16 95,32 C112,38 115,58 100,68 C108,82 95,98 78,95 C70,108 50,108 42,98 C25,105 8,90 12,72 C-2,60 5,40 22,35 C20,18 38,5 58,8 Z" fill="#ff006e"/>
+          <circle cx="14" cy="22" r="4" fill="#ff006e"/>
+          <circle cx="108" cy="20" r="3" fill="#ff006e"/>
+          <circle cx="112" cy="78" r="4.5" fill="#ff006e"/>
+          <circle cx="22" cy="106" r="3.2" fill="#ff006e"/>
+        </svg>
+      </span>
+      <span class="ink-splat ink-splat--tr" aria-hidden="true">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <path d="M60,12 C82,8 100,22 96,42 C112,52 110,75 92,80 C88,98 65,102 55,90 C40,100 18,92 18,72 C2,62 8,38 28,32 C32,16 48,10 60,12 Z" fill="#00f0ff"/>
+          <circle cx="10" cy="40" r="3.5" fill="#00f0ff"/>
+          <circle cx="105" cy="100" r="3.8" fill="#00f0ff"/>
+          <circle cx="80" cy="115" r="2.8" fill="#00f0ff"/>
+        </svg>
+      </span>
+      <span class="ink-splat ink-splat--ml" aria-hidden="true">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <path d="M55,10 C78,12 95,28 88,48 C105,55 102,78 82,82 C82,98 62,100 50,92 C32,100 12,85 18,68 C0,55 8,32 28,30 C30,16 42,8 55,10 Z" fill="#ffea00"/>
+          <circle cx="110" cy="28" r="3" fill="#ffea00"/>
+          <circle cx="20" cy="105" r="3.5" fill="#ffea00"/>
+        </svg>
+      </span>
+      <span class="ink-splat ink-splat--br" aria-hidden="true">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <path d="M62,8 C80,5 98,18 96,38 C115,48 112,72 92,78 C95,95 70,102 58,92 C42,102 18,90 20,70 C2,62 6,38 26,32 C28,15 45,5 62,8 Z" fill="#39ff14"/>
+          <circle cx="105" cy="18" r="3" fill="#39ff14"/>
+          <circle cx="8" cy="60" r="3.5" fill="#39ff14"/>
+          <circle cx="100" cy="105" r="2.8" fill="#39ff14"/>
+        </svg>
+      </span>
+      <span class="ink-splat ink-splat--bm" aria-hidden="true">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <path d="M58,12 C78,10 92,25 90,45 C108,52 105,75 85,80 C85,96 65,98 52,90 C36,100 16,85 22,68 C5,58 12,35 30,32 C32,18 45,10 58,12 Z" fill="#ff006e"/>
+          <circle cx="12" cy="22" r="3" fill="#ff006e"/>
+          <circle cx="108" cy="100" r="3" fill="#ff006e"/>
+        </svg>
+      </span>
+
+      <div class="game-time-badge">
+        <span class="game-time-time">10:30 - 18:00</span>
+        <span class="game-time-text">ガチでぶっ続け！</span>
+      </div>
+
       <div class="pitch-fighter-title">
         <span class="pitch-month-badge">GAME</span>
         <span class="main">ブース紹介</span>
@@ -3189,6 +3322,21 @@
         var idx = Math.round(el.scrollLeft / el.offsetWidth);
         dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
       });
+    })();
+
+    /* ── ブース セクションのインク演出 ── */
+    (function() {
+      var booth = document.getElementById('boothSection');
+      if (!booth) return;
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            booth.classList.add('is-splattered');
+            obs.disconnect();
+          }
+        });
+      }, { threshold: 0.25 });
+      obs.observe(booth);
     })();
 
     /* ── 同意モーダル → フォーム埋め込み表示 ── */
