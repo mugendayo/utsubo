@@ -1763,6 +1763,57 @@
       z-index: 2;
     }
 
+    /* ゲストピッチ — 小型バリアント */
+    .pitch-fighter--guest {
+      margin-top: 10px;
+    }
+
+    .pitch-fighter--guest .pitch-fighter-title {
+      padding: 8px 14px 6px;
+    }
+
+    .pitch-fighter--guest .pitch-month-badge {
+      top: 7px;
+      left: 12px;
+      font-size: 0.78rem;
+    }
+
+    .pitch-fighter--guest .pitch-fighter-title .main {
+      font-size: 1.5rem;
+      text-shadow:
+        2px 2px 0 rgba(139,90,43,0.9),
+        3px 3px 0 rgba(60,30,5,0.5),
+        -1px -1px 0 rgba(255,255,255,0.1),
+        0 0 20px rgba(255,255,255,0.06);
+    }
+
+    .pitch-fighter--guest .pitch-fighter-divider {
+      margin: 0 24px;
+    }
+
+    .pitch-fighter--guest .pitch-fighter-cards {
+      justify-content: center;
+    }
+
+    .pitch-fighter--guest .pitch-fighter-card {
+      flex: 0 0 34%;
+    }
+
+    .pitch-fighter--guest .pitch-fighter-photo {
+      aspect-ratio: 1 / 1.4;
+      clip-path: polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%) !important;
+    }
+
+    .pitch-fighter--guest .pitch-fighter-name {
+      font-size: 0.62rem;
+      bottom: 14px;
+    }
+
+    .pitch-fighter--guest .pitch-fighter-role {
+      font-size: 0.48rem;
+      bottom: 4px;
+    }
+
     /* お断りブロック */
     .rejection-block {
       margin-top: 24px;
@@ -2374,6 +2425,24 @@
           </div>
         </div>
 
+      </div>
+    </div>
+
+    <!-- Fighter Pass スタイル — ゲストピッチ -->
+    <div class="pitch-fighter pitch-fighter--guest">
+      <div class="pitch-fighter-title">
+        <span class="pitch-month-badge">SPECIAL</span>
+        <span class="main">ゲストピッチ</span>
+      </div>
+      <div class="pitch-fighter-divider"></div>
+      <div class="pitch-fighter-cards">
+        <div class="pitch-fighter-card">
+          <div class="pitch-fighter-photo">
+            <img src="photos/guest.jpg" alt="藤野悠生">
+            <p class="pitch-fighter-name">藤野悠生</p>
+            <p class="pitch-fighter-role">GUEST PITCHER</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
