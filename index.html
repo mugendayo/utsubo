@@ -1814,14 +1814,30 @@
       bottom: 4px;
     }
 
-    .pitch-fighter--guest .pitch-fighter-bio {
+    .pitch-guest-row {
+      display: flex;
+      gap: 14px;
+      padding: 12px 16px 18px;
       position: relative;
       z-index: 1;
-      text-align: center;
-      padding: 10px 20px 14px;
+      align-items: flex-start;
+    }
+
+    .pitch-guest-row .pitch-fighter-cards {
+      flex: 0 0 38%;
+      justify-content: flex-start;
+    }
+
+    .pitch-guest-row .pitch-fighter-card {
+      flex: 1 1 100%;
+    }
+
+    .pitch-fighter--guest .pitch-fighter-bio {
+      flex: 1;
+      text-align: left;
       color: #d6dbe4;
-      font-size: 0.72rem;
-      line-height: 1.55;
+      font-size: 0.7rem;
+      line-height: 1.65;
       letter-spacing: 0.02em;
     }
 
@@ -1831,7 +1847,57 @@
       font-weight: 700;
       letter-spacing: 0.18em;
       color: #f5c842;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
+    }
+
+    .pitch-bio-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .pitch-bio-list li {
+      position: relative;
+      padding-left: 10px;
+      font-size: 0.68rem;
+      line-height: 1.55;
+      color: #d6dbe4;
+    }
+
+    .pitch-bio-list li::before {
+      content: '・';
+      position: absolute;
+      left: -2px;
+      color: rgba(245,200,66,0.7);
+    }
+
+    .pitch-bio-list small {
+      display: block;
+      font-size: 0.85em;
+      color: #9aa1ad;
+      margin-top: 1px;
+      letter-spacing: 0.01em;
+    }
+
+    .pitch-bio-story {
+      font-size: 0.68rem;
+      line-height: 1.7;
+      color: #b8c0cc;
+      margin: 10px 0 6px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .pitch-bio-punch {
+      font-family: 'Dela Gothic One', 'Noto Sans JP', sans-serif;
+      font-size: 0.72rem;
+      color: #f5c842;
+      letter-spacing: 0.02em;
+      line-height: 1.5;
+      margin: 6px 0 0;
     }
 
     /* お断りブロック */
@@ -2455,19 +2521,26 @@
         <span class="main">ゲストピッチ</span>
       </div>
       <div class="pitch-fighter-divider"></div>
-      <div class="pitch-fighter-cards">
-        <div class="pitch-fighter-card">
-          <div class="pitch-fighter-photo">
-            <img src="photos/guest.jpg" alt="藤野悠生">
-            <p class="pitch-fighter-name">藤野悠生</p>
-            <p class="pitch-fighter-role">GUEST PITCHER</p>
+      <div class="pitch-guest-row">
+        <div class="pitch-fighter-cards">
+          <div class="pitch-fighter-card">
+            <div class="pitch-fighter-photo">
+              <img src="photos/guest.jpg" alt="藤野悠生">
+              <p class="pitch-fighter-name">藤野悠生</p>
+              <p class="pitch-fighter-role">GUEST PITCHER</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="pitch-fighter-bio">
-        <span class="pitch-fighter-bio-label">CAREER</span><br>
-        新規事業開発コンサルタント<br>
-        <span style="opacity:0.75;">（製薬ヘルスケア・自動車メーカー）</span>
+        <div class="pitch-fighter-bio">
+          <span class="pitch-fighter-bio-label">CAREER</span>
+          <ul class="pitch-bio-list">
+            <li>新規事業開発コンサルタント<small>（製薬ヘルスケア・自動車メーカー）</small></li>
+            <li>ニコニコ動画にて歌い手活動</li>
+            <li>現代の松下村塾をテーマに株式会社サムライウタリを創業</li>
+          </ul>
+          <p class="pitch-bio-story">兵庫に生まれ、広島で育ち、東京で働き、大阪で修行し、北海道で起業家に。</p>
+          <p class="pitch-bio-punch">そんな藤野が今日、感謝をしに来ます。</p>
+        </div>
       </div>
     </div>
   </section>
