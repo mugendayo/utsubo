@@ -1900,6 +1900,62 @@
       margin: 6px 0 0;
     }
 
+    /* ブース説明 — ゲーム系ネオンバリアント */
+    .pitch-fighter--game {
+      background: linear-gradient(160deg, #1a0a3a 0%, #2e0e60 50%, #4a1a80 100%);
+      margin-top: 28px;
+    }
+
+    .pitch-fighter--game::before {
+      background: repeating-linear-gradient(
+        0deg, transparent, transparent 3px,
+        rgba(0,240,255,0.04) 3px, rgba(0,240,255,0.04) 4px
+      );
+    }
+
+    .pitch-fighter--game .pitch-month-badge {
+      color: #00f0ff;
+      text-shadow:
+        2px 2px 0 rgba(255,0,110,0.85),
+        3px 3px 0 rgba(80,0,40,0.55);
+    }
+
+    .pitch-fighter--game .pitch-fighter-title .main {
+      color: #ffea00;
+      text-shadow:
+        3px 3px 0 rgba(255,0,110,0.95),
+        5px 5px 0 rgba(60,0,30,0.6),
+        -1px -1px 0 rgba(0,240,255,0.4),
+        0 0 30px rgba(255,0,110,0.3);
+    }
+
+    .pitch-fighter--game .pitch-fighter-divider {
+      background: linear-gradient(to right, transparent, rgba(0,240,255,0.7), rgba(255,0,110,0.7), transparent);
+    }
+
+    .pitch-fighter--game .pitch-fighter-photo {
+      background: #0a0420;
+    }
+
+    .pitch-fighter--game .pitch-fighter-photo img {
+      filter: contrast(1.15) saturate(1.1) brightness(0.88);
+    }
+
+    .pitch-fighter--game .pitch-fighter-photo::before {
+      background: linear-gradient(to top, rgba(20,5,46,1) 0%, rgba(20,5,46,0.72) 50%, transparent 100%);
+    }
+
+    .pitch-fighter--game .pitch-fighter-name {
+      font-size: 0.74rem;
+      color: #fff;
+      text-shadow: 0 0 8px rgba(0,240,255,0.45), 0 1px 6px rgba(0,0,0,0.95);
+    }
+
+    .pitch-fighter--game .pitch-fighter-role {
+      color: #ff006e;
+      text-shadow: 0 0 6px rgba(255,0,110,0.35);
+    }
+
     /* お断りブロック */
     .rejection-block {
       margin-top: 24px;
@@ -2881,6 +2937,38 @@
     <div class="tournament-closing-wrap">
       <p class="tournament-closing">俺より右上なヤツに会いに行く</p>
     </div>
+
+    <!-- ブース説明 -->
+    <div class="pitch-fighter pitch-fighter--game">
+      <div class="pitch-fighter-title">
+        <span class="pitch-month-badge">GAME</span>
+        <span class="main">ブース紹介</span>
+      </div>
+      <div class="pitch-fighter-divider"></div>
+      <div class="pitch-fighter-cards">
+        <div class="pitch-fighter-card">
+          <div class="pitch-fighter-photo">
+            <img src="photos/game1.jpg" alt="ガチ桃鉄">
+            <p class="pitch-fighter-name">ガチ桃鉄</p>
+            <p class="pitch-fighter-role">BOOTH 01</p>
+          </div>
+        </div>
+        <div class="pitch-fighter-card">
+          <div class="pitch-fighter-photo">
+            <img src="photos/game2.jpg" alt="無限マーダーミステリー">
+            <p class="pitch-fighter-name">無限マーダーミステリー</p>
+            <p class="pitch-fighter-role">BOOTH 02</p>
+          </div>
+        </div>
+        <div class="pitch-fighter-card">
+          <div class="pitch-fighter-photo">
+            <img src="photos/game3.jpg" alt="本気のお悩み相談">
+            <p class="pitch-fighter-name">本気のお悩み相談</p>
+            <p class="pitch-fighter-role">BOOTH 03</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section class="section-who">
@@ -2931,7 +3019,7 @@
         id="applyFormIframe"
         title="うつぼ感謝祭 申し込みフォーム"
         src="about:blank"
-        data-src="https://docs.google.com/forms/d/e/1FAIpQLSfIwhWr0VK_RW9XiO2q-cnVahm4sMaQPExPUjfvTR05yq40gg/viewform?embedded=true"
+        data-src="https://docs.google.com/forms/d/e/1FAIpQLSeQHL7TWvvQFDB4ktvw09MiCD3SLqjwmVVKid8W2UpsfhaDSA/viewform?embedded=true"
         loading="lazy">読み込み中…</iframe>
     </div>
   </section>
