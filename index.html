@@ -91,14 +91,37 @@
     }
 
     .hero-official {
-      font-size: 0.7rem;
-      color: rgba(255,255,255,0.78);
-      letter-spacing: 0.32em;
-      font-weight: 500;
-      margin-bottom: 10px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid rgba(255,255,255,0.22);
       display: inline-block;
+      position: relative;
+      margin-bottom: 16px;
+      padding: 9px 20px 8px;
+      background: #FFD83A;
+      border: 2.5px solid #0a1f4d;
+      box-shadow: 4px 4px 0 #0a1f4d;
+      transform: rotate(-2.5deg);
+      overflow: hidden;
+      line-height: 1;
+    }
+
+    .hero-official::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(170,120,0,0.42) 1.2px, transparent 1.6px);
+      background-size: 7px 7px;
+      pointer-events: none;
+    }
+
+    .hero-official-text {
+      position: relative;
+      z-index: 1;
+      font-family: 'Dela Gothic One', 'Noto Sans JP', sans-serif;
+      font-size: 0.92rem;
+      letter-spacing: 0.12em;
+      color: #1346b6;
+      text-shadow:
+        1px 1px 0 #fff,
+        -1px -1px 0 #5bc2ff;
     }
 
     .hero-eyebrow {
@@ -2101,7 +2124,7 @@
     <div class="hero-overlay" aria-hidden="true"></div>
 
     <div class="hero-content">
-      <p class="hero-official">【特設サイト】</p>
+      <div class="hero-official"><span class="hero-official-text">特設サイト</span></div>
       <p class="hero-eyebrow">2018年から続く文化を、絶やさないための祝祭</p>
       <h1>うつぼ感謝祭</h1>
       <p class="hero-tagline">真剣な話をしながら、ゲームで遊び、飯を食う。<br>それだけのイベントが、続いている。</p>
@@ -2321,9 +2344,17 @@
 
         <div class="pitch-fighter-card">
           <div class="pitch-fighter-photo">
+            <img src="photos/cook3.jpg" alt="武田吉平">
+            <p class="pitch-fighter-name">武田吉平</p>
+            <p class="pitch-fighter-role">MC</p>
+          </div>
+        </div>
+
+        <div class="pitch-fighter-card">
+          <div class="pitch-fighter-photo">
             <img src="photos/cook2.jpg" alt="炎山友秋">
             <p class="pitch-fighter-name">炎山友秋</p>
-            <p class="pitch-fighter-role">MC</p>
+            <p class="pitch-fighter-role">PITCHER</p>
           </div>
         </div>
 
